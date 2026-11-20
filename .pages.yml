@@ -1,0 +1,111 @@
+media:
+  input: public/gorseller
+  output: /gorseller
+
+content:
+  - name: blog
+    label: Blog yazıları
+    type: collection
+    path: src/icerik/blog
+    filename: '{primary}.md'
+    view:
+      fields: [baslik, tarih]
+      primary: baslik
+      sort: [tarih]
+      default:
+        sort: tarih
+        order: desc
+    fields:
+      - name: baslik
+        label: Başlık
+        type: string
+        required: true
+      - name: ozet
+        label: Özet (liste ve arama sonuçlarında görünür)
+        type: text
+        required: true
+      - name: tarih
+        label: Yayım tarihi
+        type: date
+        required: true
+      - name: body
+        label: İçerik
+        type: rich-text
+
+  - name: bilgi
+    label: Bilgi Merkezi
+    type: collection
+    path: src/icerik/bilgi
+    filename: '{primary}.md'
+    view:
+      fields: [baslik, sira]
+      primary: baslik
+    fields:
+      - name: baslik
+        label: Başlık
+        type: string
+        required: true
+      - name: ozet
+        label: Özet
+        type: text
+        required: true
+      - name: sira
+        label: Sıra numarası
+        type: number
+      - name: body
+        label: İçerik
+        type: rich-text
+
+  - name: hizmetler
+    label: Hizmetler
+    type: file
+    path: src/data/hizmetler.json
+    list: true
+    fields:
+      - name: baslik
+        label: Hizmetin adı
+        type: string
+        required: true
+      - name: ozet
+        label: Kısa açıklama
+        type: text
+      - name: detay
+        label: Ayrıntılı açıklama
+        type: text
+
+  - name: ayarlar
+    label: Site ayarları ve iletişim
+    type: file
+    path: src/data/site.json
+    fields:
+      - name: ad
+        label: Site adı
+        type: string
+      - name: aciklama
+        label: Site açıklaması
+        type: text
+      - name: uzman
+        label: Uzman bilgileri (Hakkımızda sayfası)
+        type: object
+        fields:
+          - { name: ad, label: Ad soyad, type: string }
+          - { name: unvan, label: Unvan ve uzmanlık alanı, type: string }
+          - { name: ozgecmis, label: Özgeçmiş, type: text }
+      - name: iletisim
+        label: İletişim bilgileri
+        type: object
+        fields:
+          - { name: telefon, label: Telefon, type: string }
+          - { name: eposta, label: E-posta, type: string }
+          - { name: adres, label: Adres, type: text }
+          - { name: calismaSaatleri, label: Çalışma saatleri, type: string }
+      - name: formAnahtari
+        label: Form erişim anahtarı (Web3Forms)
+        type: string
+      - name: sosyal
+        label: Sosyal medya bağlantıları
+        type: object
+        fields:
+          - { name: instagram, label: Instagram, type: string }
+          - { name: youtube, label: YouTube, type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
