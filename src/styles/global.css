@@ -1187,3 +1187,81 @@ svg {
 .share + .disclaimer {
   margin-top: 1.5rem;
 }
+
+/* ---------- Yazı görselleri ve ekler ---------- */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--r-sm);
+  margin: 1.5rem 0;
+}
+.cover {
+  margin: 0 0 2.5rem;
+  max-width: 54rem;
+}
+.cover img {
+  width: 100%;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+}
+.cover figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+.files {
+  margin-top: 2.5rem;
+  max-width: var(--prose);
+}
+.files h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+.files ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.files a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-word;
+}
+.files a:hover {
+  border-color: var(--primary);
+  background: var(--soft);
+}
+.files svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: none;
+  color: var(--primary);
+}
+.post-link.has-thumb {
+  grid-template-columns: 11rem minmax(0, 1fr) 9rem;
+  align-items: center;
+}
+.post-link .thumb {
+  width: 9rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+}
+@media (max-width: 640px) {
+  .post-link.has-thumb {
+    grid-template-columns: 1fr;
+  }
+  .post-link .thumb {
+    width: 100%;
+    height: 10rem;
+  }
+}

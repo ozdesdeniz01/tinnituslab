@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, notlar, tarih } from '../../lib/site.js';
+import { u, notlar, tarih, isoTarih } from '../../lib/site.js';
 const yazilar = notlar();
+const dis = (y) => /^https?:\/\//.test(y);
 ---
 
 <Base baslik="Yazılarımız" aciklama="Kulak çınlaması ve ses toleransı alanındaki güncel gelişmeleri ve gündelik yaşama ilişkin önerileri ele alan yazılar.">
@@ -19,12 +20,13 @@ const yazilar = notlar();
         ) : (
           <div class="posts">
             {yazilar.map((y) => (
-              <a class="post-link" href={u(`/yazilar/${y.slug}/`)}>
-                <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
+              <a class:list={['post-link', { 'has-thumb': y.kapak }]} href={u(`/yazilar/${y.slug}/`)}>
+                <time datetime={isoTarih(y.tarih)}>{tarih(y.tarih)}</time>
                 <div>
                   <h2 style="font-size:1.4rem;margin:0 0 .3em">{y.baslik}</h2>
                   <p>{y.ozet}</p>
                 </div>
+                {y.kapak && <img class="thumb" src={dis(y.kapak) ? y.kapak : encodeURI(u(y.kapak))} alt="" loading="lazy" />}
               </a>
             ))}
           </div>

@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import sss from '../data/sss.json';
-import { site, u, bilgiYazilari, notlar, tarih } from '../lib/site.js';
+import sssVeri from '../data/sss.json';
+import { site, u, bilgiYazilari, notlar, tarih, isoTarih } from '../lib/site.js';
+const sss = Array.isArray(sssVeri) ? sssVeri : [];
 
 const bilgi = bilgiYazilari().slice(0, 6);
 const yazilar = notlar().slice(0, 3);
@@ -227,7 +228,7 @@ const halkalar = [60, 100, 140, 180, 220];
           <div class="posts">
             {yazilar.map((y) => (
               <a class="post-link" href={u(`/yazilar/${y.slug}/`)}>
-                <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
+                <time datetime={isoTarih(y.tarih)}>{tarih(y.tarih)}</time>
                 <div>
                   <h3>{y.baslik}</h3>
                   <p>{y.ozet}</p>

@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import sozluk from '../data/sozluk.json';
-const liste = [...sozluk].sort((a, b) => a.terim.localeCompare(b.terim, 'tr'));
+const liste = (Array.isArray(sozluk) ? sozluk : []).filter((t) => t?.terim).sort((a, b) => a.terim.localeCompare(b.terim, 'tr'));
 ---
 
 <Base baslik="Terimler sözlüğü" aciklama="Odyoloji ve kulak burun boğaz alanında sık kullanılan terimlerin açıklamaları.">

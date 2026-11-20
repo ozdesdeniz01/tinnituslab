@@ -1,28 +1,56 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Paylas from '../../components/Paylas.astro';
-import { u, notlar, tarih, paylasimGorseli } from '../../lib/site.js';
+import { u, notlar, tarih, isoTarih, dosyaAdi, paylasimGorseli } from '../../lib/site.js';
 
 export function getStaticPaths() {
   return notlar().map((y) => ({ params: { slug: y.slug } }));
 }
 const yazi = notlar().find((y) => y.slug === Astro.params.slug);
 const { Content } = yazi;
+const dis = (y) => /^https?:\/\//.test(y);
 ---
 
-<Base baslik={yazi.baslik} aciklama={yazi.ozet} gorsel={paylasimGorseli(yazi.slug)} tur="article">
+<Base baslik={yazi.baslik} aciklama={yazi.ozet || undefined} gorsel={paylasimGorseli(yazi.slug, yazi.kapak)} tur="article">
   <div class="page-head">
     <div class="wrap">
       <p class="meta" style="font-size:1rem;margin-bottom:.6rem">
-        <a href={u('/yazilar/')}>Yazılarımız</a>, <time datetime={new Date(yazi.tarih).toISOString().slice(0, 10)}>{tarih(yazi.tarih)}</time>
+        <a href={u('/yazilar/')}>Yazılarımız</a>{yazi.tarih && <>, <time datetime={isoTarih(yazi.tarih)}>{tarih(yazi.tarih)}</time></>}
       </p>
       <h1>{yazi.baslik}</h1>
-      <p>{yazi.ozet}</p>
+      {yazi.ozet && <p>{yazi.ozet}</p>}
     </div>
   </div>
   <section class="section">
     <div class="wrap">
+      {
+        yazi.kapak && (
+          <figure class="cover">
+            <img src={dis(yazi.kapak) ? yazi.kapak : encodeURI(u(yazi.kapak))} alt={yazi.kapakAciklama} />
+            {yazi.kapakAciklama && <figcaption>{yazi.kapakAciklama}</figcaption>}
+          </figure>
+        )
+      }
       <div class="prose"><Content /></div>
+      {
+        yazi.ekler.length > 0 && (
+          <div class="files">
+            <h2>Ekler</h2>
+            <ul>
+              {yazi.ekler.map((e) => (
+                <li>
+                  <a href={dis(e) ? e : encodeURI(u(e))} download>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                    </svg>
+                    {dosyaAdi(e)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
       <Paylas baslik={yazi.baslik} />
       <div class="disclaimer">
         <p>

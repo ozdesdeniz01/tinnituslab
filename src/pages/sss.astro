@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import sss from '../data/sss.json';
+import sssVeri from '../data/sss.json';
+const sss = (Array.isArray(sssVeri) ? sssVeri : []).filter((q) => q?.soru);
 import { u } from '../lib/site.js';
 const veri = {
   '@context': 'https://schema.org',

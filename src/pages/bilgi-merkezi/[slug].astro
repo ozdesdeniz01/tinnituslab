@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Paylas from '../../components/Paylas.astro';
-import { site, u, bilgiYazilari, tarih, paylasimGorseli } from '../../lib/site.js';
+import { site, u, bilgiYazilari, tarih, isoTarih, paylasimGorseli } from '../../lib/site.js';
 
 export function getStaticPaths() {
   return bilgiYazilari().map((y) => ({ params: { slug: y.slug } }));
@@ -16,7 +16,7 @@ const veri = {
   headline: yazi.baslik,
   description: yazi.ozet,
   inLanguage: 'tr',
-  ...(yazi.guncelleme ? { dateModified: new Date(yazi.guncelleme).toISOString().slice(0, 10) } : {}),
+  ...(isoTarih(yazi.guncelleme) ? { dateModified: isoTarih(yazi.guncelleme) } : {}),
   ...(yazi.denetlendi && site.uzman.ad ? { reviewedBy: { '@type': 'Person', name: site.uzman.ad } } : {}),
 };
 ---
@@ -43,7 +43,7 @@ const veri = {
         }
         <Paylas baslik={yazi.baslik} />
         <div class="disclaimer">
-          {yazi.guncelleme && <p style="margin-bottom:.5rem">Son güncelleme: {tarih(yazi.guncelleme)}</p>}
+          {tarih(yazi.guncelleme) && <p style="margin-bottom:.5rem">Son güncelleme: {tarih(yazi.guncelleme)}</p>}
           {yazi.denetlendi && site.uzman.ad && <p style="margin-bottom:.5rem">İçerik denetimi: {site.uzman.ad}</p>}
           <p>
             Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; tanı veya tedavi önerisi niteliği taşımaz. Şikâyetleriniz

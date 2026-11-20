@@ -1,17 +1,29 @@
 media:
-  input: public/gorseller
-  output: /gorseller
+  - name: gorseller
+    label: Görseller
+    input: public/gorseller
+    output: /gorseller
+    categories: [image]
+    rename: safe
+  - name: belgeler
+    label: Belgeler (PDF, Word vb.)
+    input: public/belgeler
+    output: /belgeler
+    categories: [document, spreadsheet, compressed]
+    rename: safe
 
 content:
   - name: notlar
     label: Yazılarımız
     type: collection
     path: src/icerik/notlar
-    filename: '{primary}.md'
+    filename:
+      template: '{primary}.md'
+      field: create
     view:
       fields: [baslik, tarih]
       primary: baslik
-      sort: [tarih]
+      sort: [tarih, baslik]
       default:
         sort: tarih
         order: desc
@@ -21,25 +33,60 @@ content:
         type: string
         required: true
       - name: ozet
-        label: Özet (liste ve arama sonuçlarında görünür)
+        label: Özet
+        description: Yazı listesinde ve sosyal medyada paylaşıldığında görünen bir iki cümlelik açıklama.
         type: text
         required: true
       - name: tarih
         label: Yayım tarihi
         type: date
         required: true
+      - name: kapak
+        label: Kapak görseli
+        description: İsteğe bağlı. Yazının başında, yazı listesinde ve sosyal medya paylaşımlarında görünür. Yatay bir görsel seçin.
+        type: image
+        options:
+          media: gorseller
+          rename: safe
+      - name: kapakAciklama
+        label: Kapak görseli açıklaması
+        description: Görselin altında görünür ve görme engelli okurlar için okunur.
+        type: string
       - name: body
         label: İçerik
+        description: Görsel eklemek için araç çubuğundaki görsel düğmesini kullanın.
         type: rich-text
+        options:
+          media: gorseller
+          rename: safe
+      - name: ekler
+        label: Ekler (indirilebilir belgeler)
+        description: İsteğe bağlı. PDF veya Word belgeleri yazının sonunda indirme bağlantısı olarak görünür.
+        type: file
+        options:
+          media: belgeler
+          rename: safe
+          multiple:
+            max: 5
+      - name: taslak
+        label: Taslak
+        description: İşaretliyken yazı sitede görünmez. Yayımlamak için işareti kaldırın.
+        type: boolean
 
   - name: bilgi
     label: Bilgi Merkezi
     type: collection
     path: src/icerik/bilgi
-    filename: '{primary}.md'
+    filename:
+      template: '{primary}.md'
+      field: create
     view:
       fields: [baslik, sira]
       primary: baslik
+      sort: [sira, baslik]
+      default:
+        sort: sira
+        order: asc
     fields:
       - name: baslik
         label: Başlık
@@ -47,24 +94,32 @@ content:
         required: true
       - name: ozet
         label: Özet
+        description: Kartlarda ve sosyal medya paylaşımlarında görünen bir iki cümlelik açıklama.
         type: text
         required: true
       - name: sira
         label: Sıra numarası
+        description: Küçük numaralı yazı listede önce görünür.
         type: number
       - name: guncelleme
         label: Son güncelleme tarihi
         type: date
       - name: denetlendi
-        label: Uzman tarafından denetlendi (işaretlenirse yazının altında uzmanın adı görünür)
+        label: Uzman tarafından denetlendi
+        description: İşaretlenirse yazının altında "İçerik denetimi" satırında uzmanın adı görünür.
         type: boolean
-      - name: kaynaklar
-        label: Kaynaklar
-        type: string
-        list: true
       - name: body
         label: İçerik
+        description: Görsel eklemek için araç çubuğundaki görsel düğmesini kullanın.
         type: rich-text
+        options:
+          media: gorseller
+          rename: safe
+      - name: kaynaklar
+        label: Kaynaklar
+        description: Her kaynağı ayrı satır olarak ekleyin.
+        type: string
+        list: true
 
   - name: yayinlar
     label: Akademik çalışmalar
@@ -107,6 +162,7 @@ content:
         type: string
       - name: aciklama
         label: Site açıklaması
+        description: Alt bilgide ve arama motoru sonuçlarında görünür.
         type: text
       - name: tema
         label: Renk teması
@@ -119,7 +175,12 @@ content:
         fields:
           - { name: ad, label: Ad soyad, type: string }
           - { name: unvan, label: Unvan, type: string }
-          - { name: foto, label: Fotoğraf, type: image }
+          - name: foto
+            label: Fotoğraf
+            type: image
+            options:
+              media: gorseller
+              rename: safe
           - { name: fotoAciklama, label: Fotoğraf açıklaması, type: string }
           - { name: kisaOzgecmis, label: Kısa özgeçmiş (ana sayfa), type: text }
           - { name: ozgecmis, label: Özgeçmiş (Hakkımızda), type: text }
@@ -134,9 +195,11 @@ content:
           - { name: calismaSaatleri, label: Çalışma saatleri, type: string }
       - name: formAnahtari
         label: Form erişim anahtarı (Web3Forms)
+        description: İletişim formunun çalışması için gereklidir. Boşken form sitede görünmez.
         type: string
       - name: sosyal
         label: Sosyal medya bağlantıları
+        description: Doldurulan hesaplar sitenin alt bilgisinde görünür. Tam adresi yazın (https://...).
         type: object
         fields:
           - { name: instagram, label: Instagram, type: string }

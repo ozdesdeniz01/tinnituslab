@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import yayinlar from '../data/yayinlar.json';
 import { site, u } from '../lib/site.js';
-const liste = [...yayinlar].sort((a, b) => b.yil - a.yil);
+const liste = (Array.isArray(yayinlar) ? yayinlar : []).filter((y) => y?.baslik).sort((a, b) => (b.yil || 0) - (a.yil || 0));
 const { ad, unvan, ozgecmis, foto, fotoAciklama, scholar } = site.uzman;
 const veri = ad && {
   '@context': 'https://schema.org',
