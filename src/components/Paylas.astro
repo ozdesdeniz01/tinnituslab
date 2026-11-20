@@ -1,0 +1,51 @@
+---
+const { baslik } = Astro.props;
+const adres = new URL(Astro.url.pathname, Astro.site).href;
+const e = encodeURIComponent;
+const kanallar = [
+  { ad: 'WhatsApp', href: `https://wa.me/?text=${e(`${baslik} ${adres}`)}` },
+  { ad: 'X', href: `https://twitter.com/intent/tweet?text=${e(baslik)}&url=${e(adres)}` },
+  { ad: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${e(adres)}` },
+  { ad: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${e(adres)}` },
+  { ad: 'Telegram', href: `https://t.me/share/url?url=${e(adres)}&text=${e(baslik)}` },
+  { ad: 'E-posta', href: `mailto:?subject=${e(baslik)}&body=${e(adres)}` },
+];
+---
+
+<div class="share" data-baslik={baslik} data-adres={adres}>
+  <p class="share-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"></path>
+    </svg>
+    Bu yazıyı paylaşın
+  </p>
+  <div class="share-links">
+    <button type="button" class="share-native" hidden>Paylaş</button>
+    {kanallar.map((k) => <a href={k.href} target="_blank" rel="noopener noreferrer">{k.ad}</a>)}
+    <button type="button" class="share-copy">Bağlantıyı kopyala</button>
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.share').forEach((kutu) => {
+    const { baslik, adres } = kutu.dataset;
+    const yerel = kutu.querySelector('.share-native');
+    if (navigator.share) {
+      yerel.hidden = false;
+      yerel.addEventListener('click', () => navigator.share({ title: baslik, url: adres }).catch(() => {}));
+    }
+    const kopya = kutu.querySelector('.share-copy');
+    kopya.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(adres);
+        kopya.textContent = 'Bağlantı kopyalandı';
+      } catch {
+        kopya.textContent = 'Kopyalanamadı';
+      }
+      setTimeout(() => (kopya.textContent = 'Bağlantıyı kopyala'), 2500);
+    });
+  });
+</script>

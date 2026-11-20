@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import site from '../data/site.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -19,5 +20,9 @@ export const notlar = () =>
   Object.values(import.meta.glob('../icerik/notlar/*.md', { eager: true }))
     .map((m) => ({ ...m.frontmatter, slug: slugOf(m.file), Content: m.Content }))
     .sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+
+/** Yazıya özel paylaşım görseli varsa onu, yoksa genel görseli döndürür. */
+export const paylasimGorseli = (slug) =>
+  fs.existsSync(`${process.cwd()}/public/og/${slug}.png`) ? `/og/${slug}.png` : '/og.png';
 
 export { site };

@@ -1127,3 +1127,60 @@ svg {
 .refs li {
   margin-bottom: 0.5em;
 }
+
+/* ---------- Paylaşım ---------- */
+.share {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  max-width: var(--prose);
+}
+.share-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 560;
+  color: var(--ink);
+}
+.share-title svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--primary);
+}
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.share-links a,
+.share-links button {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+.share-links a:hover,
+.share-links button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.share-links .share-native {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.share + .disclaimer {
+  margin-top: 1.5rem;
+}
