@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import { u } from '../lib/site.js';
+---
+
+<Base baslik="Kime başvurmalı?" aciklama="Kulak çınlaması ve ses hassasiyetinde hangi durumda hangi sağlık meslek mensubuna başvurulacağına ilişkin rehber.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Kime başvurmalı?</h1>
+      <p>Kulak çınlaması ve ses hassasiyetinde hangi durumda kime başvurulacağına ilişkin kısa bir rehber.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="rows">
+        <div class="row">
+          <h2 style="font-size:1.5rem;margin:0">Acil servis</h2>
+          <div>
+            <p><strong>Aşağıdaki durumlarda vakit kaybetmeden 112'yi arayınız veya acil servise başvurunuz.</strong></p>
+            <p>
+              Çınlamayla birlikte ani gelişen işitme kaybı; yüzde uyuşma, güçsüzlük veya konuşma bozukluğu; şiddetli baş
+              dönmesi; baş travmasından sonra başlayan çınlama. Ani işitme kaybında erken başvuru tedavinin başarısını
+              etkiler.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <h2 style="font-size:1.5rem;margin:0">Kulak burun boğaz hekimi</h2>
+          <div>
+            <p><strong>Çınlamada ilk başvurulacak hekimlik dalıdır.</strong></p>
+            <p>
+              Kulak muayenesini yapar, altta yatan ve tedavi edilebilen nedenleri araştırır, gerekli görürse görüntüleme
+              ve ek incelemeler ister. Tek kulakta duyulan, kalp atımıyla eş zamanlı olan veya birkaç haftadan uzun süren
+              çınlamalar mutlaka bir kulak burun boğaz hekimi tarafından değerlendirilmelidir.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <h2 style="font-size:1.5rem;margin:0">Odyolog</h2>
+          <div>
+            <p><strong>İşitmenin ve çınlamanın ayrıntılı değerlendirmesini yapar.</strong></p>
+            <p>
+              İşitme testlerini uygular, çınlamanın ve ses hassasiyetinin özelliklerini ölçer, işitme cihazı ve ses
+              terapisi uygulamalarını yürütür, çınlamaya ilişkin bilgilendirme ve danışmanlık verir. Odyolojik
+              değerlendirme çoğunlukla hekim muayenesiyle birlikte planlanır.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <h2 style="font-size:1.5rem;margin:0">Psikiyatri hekimi ve klinik psikolog</h2>
+          <div>
+            <p><strong>Çınlamanın yarattığı sıkıntı günlük yaşamı etkilediğinde destek sağlar.</strong></p>
+            <p>
+              Çınlamaya belirgin kaygı, çökkünlük veya uyku sorunu eşlik ediyorsa ruh sağlığı alanından destek almak
+              yararlıdır. Bilişsel davranışçı terapi, çınlamaya ve mizofoniye eşlik eden sıkıntıyı azaltmada en çok
+              desteklenen yaklaşımdır.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <h2 style="font-size:1.5rem;margin:0">Diğer hekimlik dalları</h2>
+          <div>
+            <p><strong>Kulak burun boğaz hekiminin gerekli gördüğü durumlarda yönlendirme yapılır.</strong></p>
+            <p>
+              Nöroloji (baş dönmesi veya nörolojik belirtiler eşlik ettiğinde), diş hekimliği (çene eklemi sorunu veya diş
+              sıkma eşlik ettiğinde), çocuk sağlığı ve hastalıkları (çocuklarda) bunlar arasındadır.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <p>
+          Bu rehber genel bilgilendirme amacı taşır. Hangi incelemenin gerekli olduğuna muayeneyi yapan hekim karar verir.
+          Belirtiler hakkında ayrıntılı bilgi için <a href={u('/bilgi-merkezi/tinnitus/')}>Tinnitus</a> yazısına
+          bakabilirsiniz.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

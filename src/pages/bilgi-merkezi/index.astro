@@ -4,11 +4,11 @@ import { u, bilgiYazilari } from '../../lib/site.js';
 const bilgi = bilgiYazilari();
 ---
 
-<Base baslik="Bilgi Merkezi" aciklama="Tinnitus, hiperakuzi, mizofoni ve çocuklarda kulak çınlaması hakkında kanıta dayalı bilgiler.">
+<Base baslik="Bilgi Merkezi" aciklama="Tinnitus, hiperakuzi ve mizofoni hakkında kaynaklı bilgi yazıları, sık sorulan sorular ve rehberler.">
   <div class="page-head">
     <div class="wrap">
       <h1>Bilgi Merkezi</h1>
-      <p>Sık sorulan soruların yanıtları, sade bir dille ve güncel bilimsel bilgiye dayanarak hazırlandı.</p>
+      <p>Sade bir dille yazılmış, kaynakları belirtilmiş bilgi yazıları ve rehberler.</p>
     </div>
   </div>
   <section class="section">
@@ -18,13 +18,21 @@ const bilgi = bilgiYazilari();
           bilgi.map((b) => (
             <a class="tile" href={u(`/bilgi-merkezi/${b.slug}/`)}>
               <div>
-                <h2 style="font-size:1.6rem;margin-bottom:.3em">{b.baslik}</h2>
+                <h2 style="font-size:1.4rem;margin-bottom:.3em">{b.baslik}</h2>
                 <p>{b.ozet}</p>
               </div>
               <span class="more">Yazıyı okuyun</span>
             </a>
           ))
         }
+      </div>
+
+      <h2 style="margin-top:4rem">Rehberler</h2>
+      <div class="guides">
+        <a class="guide" href={u('/sss/')}><strong>Sık sorulan sorular</strong>En çok merak edilen konuların kısa yanıtları</a>
+        <a class="guide" href={u('/kime-basvurmali/')}><strong>Kime başvurmalı?</strong>Hangi durumda hangi uzmana gidilir</a>
+        <a class="guide" href={u('/sozluk/')}><strong>Terimler sözlüğü</strong>Sık karşılaşılan terimlerin açıklamaları</a>
+        <a class="guide" href={u('/ortam-sesi/')}><strong>Ortam sesi aracı</strong>Tarayıcıda çalışan ücretsiz ses aracı</a>
       </div>
     </div>
   </section>

@@ -1,54 +1,74 @@
 ---
 import Base from '../layouts/Base.astro';
-import { u, bilgiYazilari, blogYazilari, tarih } from '../lib/site.js';
+import sss from '../data/sss.json';
+import { site, u, bilgiYazilari, notlar, tarih } from '../lib/site.js';
 
-const bilgi = bilgiYazilari();
-const yazilar = blogYazilari().slice(0, 3);
+const bilgi = bilgiYazilari().slice(0, 6);
+const yazilar = notlar().slice(0, 3);
+const uzman = site.uzman;
 
-// Dalga: solda düzensiz ve yüksek, sağa doğru sakinleşen çubuklar.
-const N = 120;
-let s = 7;
+// Dalga: solda düzensiz, sağa doğru sakinleşen çizgi.
+let s = 11;
 const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
-const bars = Array.from({ length: N }, (_, i) => {
+const N = 90;
+const noktalar = Array.from({ length: N }, (_, i) => {
   const t = i / (N - 1);
-  const zarf = Math.pow(1 - t, 1.7);
-  const h = 3 + zarf * (22 + rnd() * 78);
-  return { x: i * 10 + 3, h, t };
-});
+  const zarf = Math.pow(1 - t, 1.8);
+  const y = 240 + Math.sin(i * 0.9) * zarf * (30 + rnd() * 95);
+  return `${(30 + t * 420).toFixed(1)},${y.toFixed(1)}`;
+}).join(' ');
+const halkalar = [60, 100, 140, 180, 220];
 ---
 
 <Base>
-  <section class="hero on-dark">
+  <section class="hero">
     <div class="wrap">
-      <h1>Kulak çınlamasını anlamak, onunla baş etmenin ilk adımıdır.</h1>
-      <p class="lead">
-        TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni konularında bilimsel kanıta
-        dayalı, anlaşılır ve güncel bilgi sunan bir bilgilendirme platformudur.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
-        <a class="btn btn-ghost" href={u('/hakkimizda/')}>Platform hakkında</a>
+      <div>
+        <h1>Kulak çınlamasını anlamak, onunla baş etmenin ilk adımıdır.</h1>
+        <p class="lead">
+          TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni hakkında bilimsel kanıta
+          dayalı, anlaşılır ve güncel bilgi sunar.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
+          <a class="btn btn-ghost" href={u('/ortam-sesi/')}>Ortam sesini deneyin</a>
+        </div>
       </div>
+      <svg class="hero-art" viewBox="0 0 480 480" aria-hidden="true">
+        <circle cx="240" cy="240" r="230" fill="var(--soft)"></circle>
+        {
+          halkalar.map((r, i) => (
+            <circle class="ring" cx="240" cy="240" r={r} stroke-width="1.5" opacity={0.55 - i * 0.09} style={`--i:${i}`} />
+          ))
+        }
+        <polyline
+          points={noktalar}
+          fill="none"
+          stroke="var(--ink)"
+          stroke-width="3.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></polyline>
+        <circle cx="450" cy="240" r="9" fill="var(--accent)"></circle>
+      </svg>
     </div>
-    <svg class="wave" viewBox={`0 0 ${N * 10} 120`} preserveAspectRatio="none" aria-hidden="true">
-      {
-        bars.map((b, i) => (
-          <rect
-            x={b.x}
-            y={60 - b.h / 2}
-            width="4"
-            height={b.h}
-            rx="2"
-            fill={b.t > 0.78 ? '#f2b544' : '#3cc9c2'}
-            opacity={0.35 + (1 - b.t) * 0.65}
-            style={`--i:${i}`}
-          />
-        ))
-      }
-    </svg>
   </section>
 
-  <section class="section">
+  {
+    uzman.ad && (
+      <section class="cred">
+        <div class="wrap">
+          {uzman.foto && <img src={u(uzman.foto)} alt={uzman.ad} width="88" height="88" />}
+          <div>
+            <h2>{uzman.ad}</h2>
+            <p>{uzman.kisaOzgecmis}</p>
+          </div>
+          <a class="btn btn-ghost" href={u('/akademik-calismalar/')}>Akademik çalışmalar</a>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section section-mist">
     <div class="wrap">
       <div class="section-head">
         <h2>Ele aldığımız üç durum</h2>
@@ -56,15 +76,26 @@ const bars = Array.from({ length: N }, (_, i) => {
       </div>
       <div class="trio">
         <article>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="6" cy="12" r="2" fill="currentColor"></circle>
+              <path d="M11 8a6 6 0 0 1 0 8M15 5a10 10 0 0 1 0 14M19 2.5a14 14 0 0 1 0 19"></path>
+            </svg>
+          </div>
           <h3>Tinnitus</h3>
           <p class="tr">Kulak çınlaması</p>
           <p>
-            Dışarıda bir ses kaynağı olmadığı hâlde çınlama, uğultu veya vızıltı duyulmasıdır. Bir hastalık değil, altta
-            yatan farklı durumlara eşlik edebilen bir belirtidir.
+            Dışarıda bir ses kaynağı olmadığı hâlde çınlama, uğultu veya vızıltı duyulmasıdır. Bir hastalık değil, farklı
+            durumlara eşlik edebilen bir belirtidir.
           </p>
           <a href={u('/bilgi-merkezi/tinnitus/')}>Tinnitus hakkında</a>
         </article>
         <article>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 14v-4M8 16V8M12 19V5M16 21V3M20 16V8"></path>
+            </svg>
+          </div>
           <h3>Hiperakuzi</h3>
           <p class="tr">Ses hassasiyeti</p>
           <p>
@@ -74,6 +105,11 @@ const bars = Array.from({ length: N }, (_, i) => {
           <a href={u('/bilgi-merkezi/hiperakuzi/')}>Hiperakuzi hakkında</a>
         </article>
         <article>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 12h3l2-6 3 12 3-9 2 5 2-2h5"></path>
+            </svg>
+          </div>
           <h3>Mizofoni</h3>
           <p class="tr">Belirli seslere tahammülsüzlük</p>
           <p>
@@ -88,13 +124,61 @@ const bars = Array.from({ length: N }, (_, i) => {
 
   <section class="section">
     <div class="wrap">
-      <div class="notice">
+      <div class="feature">
+        <div>
+          <h2>Sessizlik çınlamayı belirginleştirir. Hafif bir ortam sesi yardımcı olabilir.</h2>
+          <p>
+            Tarayıcınızda çalışan ücretsiz ortam sesi aracıyla farklı gürültü türlerini ve dalga sesini deneyebilir,
+            uykuya geçiş için zamanlayıcı kurabilirsiniz.
+          </p>
+          <p style="margin:1.5rem 0 0"><a class="btn btn-primary" href={u('/ortam-sesi/')}>Ortam sesi aracını açın</a></p>
+        </div>
+        <svg viewBox="0 0 240 160" aria-hidden="true">
+          {
+            Array.from({ length: 24 }, (_, i) => {
+              const k = Math.abs(Math.sin(i * 0.55));
+              const h = 20 + k * 110;
+              return <rect x={i * 10 + 2} y={80 - h / 2} width="5" height={h} rx="2.5" fill="var(--accent)" opacity={0.35 + k * 0.65} />;
+            })
+          }
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Bilgi Merkezi</h2>
+        <p>Sık sorulan konular, sade bir dille ve bilimsel kaynaklara dayanarak hazırlandı.</p>
+      </div>
+      <div class="tiles">
+        {
+          bilgi.map((b) => (
+            <a class="tile" href={u(`/bilgi-merkezi/${b.slug}/`)}>
+              <div>
+                <h3>{b.baslik}</h3>
+                <p>{b.ozet}</p>
+              </div>
+              <span class="more">Yazıyı okuyun</span>
+            </a>
+          ))
+        }
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-ghost" href={u('/bilgi-merkezi/')}>Tüm konular ve rehberler</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="notice on-dark">
         <div>
           <h2>Ne zaman gecikmeden hekime başvurulmalı?</h2>
           <p>
             Kulak çınlaması çoğunlukla acil bir durum değildir. Ancak yandaki belirtilerden biri varsa beklemeden bir
             kulak burun boğaz hekimine başvurulması gerekir.
           </p>
+          <p style="margin:1.25rem 0 0"><a class="btn btn-ghost" href={u('/kime-basvurmali/')}>Kime başvurmalı?</a></p>
         </div>
         <ul>
           <li>Çınlamayla birlikte ani gelişen işitme kaybı</li>
@@ -110,22 +194,19 @@ const bars = Array.from({ length: N }, (_, i) => {
   <section class="section section-mist">
     <div class="wrap">
       <div class="section-head">
-        <h2>Bilgi Merkezi</h2>
-        <p>Sık sorulan soruların yanıtları, sade bir dille ve güncel bilimsel bilgiye dayanarak hazırlandı.</p>
+        <h2>Sık sorulan sorular</h2>
       </div>
-      <div class="tiles">
+      <div class="faq">
         {
-          bilgi.map((b) => (
-            <a class="tile" href={u(`/bilgi-merkezi/${b.slug}/`)}>
-              <div>
-                <h3>{b.baslik}</h3>
-                <p>{b.ozet}</p>
-              </div>
-              <span class="more">Yazıyı okuyun</span>
-            </a>
+          sss.slice(0, 5).map((q) => (
+            <details>
+              <summary>{q.soru}</summary>
+              <p>{q.yanit}</p>
+            </details>
           ))
         }
       </div>
+      <p style="margin-top:2rem"><a class="btn btn-ghost" href={u('/sss/')}>Tüm sorular</a></p>
     </div>
   </section>
 
@@ -134,11 +215,12 @@ const bars = Array.from({ length: N }, (_, i) => {
       <section class="section">
         <div class="wrap">
           <div class="section-head">
-            <h2>Blog</h2>
+            <h2>Araştırma Notları</h2>
+            <p>Güncel bilgilerin ve gündelik yaşama dönük önerilerin kısa yazılarla ele alındığı bölüm.</p>
           </div>
           <div class="posts">
             {yazilar.map((y) => (
-              <a class="post-link" href={u(`/blog/${y.slug}/`)}>
+              <a class="post-link" href={u(`/notlar/${y.slug}/`)}>
                 <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
                 <div>
                   <h3>{y.baslik}</h3>

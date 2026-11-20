@@ -2,6 +2,11 @@
 baslik: Çocuklarda tinnitus ve ses hassasiyeti
 ozet: Çocuklar çınlamayı nasıl ifade eder, aileler nelere dikkat etmeli, ne zaman başvurmalı?
 sira: 4
+guncelleme: 2026-11-20
+denetlendi: false
+kaynaklar:
+  - "Rosing SN, Schmidt JH, Wedderkopp N, Baguley DM. Prevalence of tinnitus and hyperacusis in children and adolescents: a systematic review. BMJ Open. 2016;6(6):e010596."
+  - "National Institute for Health and Care Excellence. Tinnitus: assessment and management (NG155). 2020."
 ---
 
 ## Çocuklarda çınlama görülür mü?

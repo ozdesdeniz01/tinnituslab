@@ -1,11 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, blogYazilari, tarih } from '../../lib/site.js';
+import { u, notlar, tarih } from '../../lib/site.js';
 
 export function getStaticPaths() {
-  return blogYazilari().map((y) => ({ params: { slug: y.slug } }));
+  return notlar().map((y) => ({ params: { slug: y.slug } }));
 }
-const yazi = blogYazilari().find((y) => y.slug === Astro.params.slug);
+const yazi = notlar().find((y) => y.slug === Astro.params.slug);
 const { Content } = yazi;
 ---
 
@@ -13,7 +13,7 @@ const { Content } = yazi;
   <div class="page-head">
     <div class="wrap">
       <p class="meta" style="font-size:1rem;margin-bottom:.6rem">
-        <a href={u('/blog/')}>Blog</a>, <time datetime={new Date(yazi.tarih).toISOString().slice(0, 10)}>{tarih(yazi.tarih)}</time>
+        <a href={u('/notlar/')}>Araştırma Notları</a>, <time datetime={new Date(yazi.tarih).toISOString().slice(0, 10)}>{tarih(yazi.tarih)}</time>
       </p>
       <h1>{yazi.baslik}</h1>
       <p>{yazi.ozet}</p>

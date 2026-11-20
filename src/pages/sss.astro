@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import sss from '../data/sss.json';
+import { u } from '../lib/site.js';
+const veri = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sss.map((q) => ({
+    '@type': 'Question',
+    name: q.soru,
+    acceptedAnswer: { '@type': 'Answer', text: q.yanit },
+  })),
+};
+---
+
+<Base baslik="Sık sorulan sorular" aciklama="Kulak çınlaması, hiperakuzi ve mizofoni hakkında sık sorulan soruların kısa yanıtları." yapisalVeri={veri}>
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Sık sorulan sorular</h1>
+      <p>Kulak çınlaması ve ses toleransı hakkında en çok merak edilen konuların kısa yanıtları.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="faq">
+        {
+          sss.map((q) => (
+            <details>
+              <summary>{q.soru}</summary>
+              <p>{q.yanit}</p>
+            </details>
+          ))
+        }
+      </div>
+      <div class="disclaimer">
+        <p>
+          Yanıtlar genel bilgilendirme amacı taşır; kişiye özgü değerlendirmenin yerini tutmaz. Ayrıntılı bilgi için
+          <a href={u('/bilgi-merkezi/')}>Bilgi Merkezi</a>'ni inceleyebilirsiniz.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

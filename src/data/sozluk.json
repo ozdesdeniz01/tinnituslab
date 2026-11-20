@@ -1,0 +1,98 @@
+[
+  {
+    "terim": "Tinnitus",
+    "tanim": "Dışarıda bir ses kaynağı olmadığı hâlde kulakta veya başın içinde ses duyulması; kulak çınlaması."
+  },
+  {
+    "terim": "Öznel (sübjektif) tinnitus",
+    "tanim": "Yalnızca kişinin kendisinin duyduğu çınlama. Çınlamaların büyük çoğunluğu bu türdendir."
+  },
+  {
+    "terim": "Nesnel (objektif) tinnitus",
+    "tanim": "Muayene eden kişinin de duyabildiği, bedendeki bir ses kaynağından (örneğin kan akımı veya kas kasılması) doğan nadir çınlama türü."
+  },
+  {
+    "terim": "Pulsatil tinnitus",
+    "tanim": "Kalp atımıyla eş zamanlı, nabız gibi atan çınlama. Hekim değerlendirmesi gerektirir."
+  },
+  {
+    "terim": "Hiperakuzi",
+    "tanim": "Gündelik seslerin aşırı yüksek, rahatsız edici veya ağrı verici algılanması; ses hassasiyeti."
+  },
+  {
+    "terim": "Mizofoni",
+    "tanim": "Belirli seslere karşı yoğun öfke, tiksinti veya kaygı tepkisi verilmesi."
+  },
+  {
+    "terim": "Fonofobi",
+    "tanim": "Belirli seslere karşı korku duyulması ve bu seslerden kaçınılması."
+  },
+  {
+    "terim": "Rekrütman",
+    "tanim": "İşitme kaybına eşlik eden, ses yükseldikçe gürlük algısının olağandan hızlı artması durumu."
+  },
+  {
+    "terim": "Odyolog",
+    "tanim": "İşitme ve denge sisteminin değerlendirilmesi ve rehabilitasyonu alanında eğitim almış sağlık meslek mensubu."
+  },
+  {
+    "terim": "Odyometri",
+    "tanim": "İşitme düzeyinin farklı frekanslarda ölçüldüğü işitme testi."
+  },
+  {
+    "terim": "Odyogram",
+    "tanim": "Odyometri sonuçlarının gösterildiği, frekans ve işitme eşiği grafiği."
+  },
+  {
+    "terim": "Sensörinöral işitme kaybı",
+    "tanim": "İç kulaktaki veya işitme sinirindeki sorunlardan kaynaklanan işitme kaybı."
+  },
+  {
+    "terim": "İletim tipi işitme kaybı",
+    "tanim": "Dış veya orta kulaktaki bir sorun nedeniyle sesin iç kulağa yeterince iletilememesinden kaynaklanan işitme kaybı."
+  },
+  {
+    "terim": "Ototoksisite",
+    "tanim": "Bazı ilaç veya kimyasal maddelerin iç kulağa zarar vermesi."
+  },
+  {
+    "terim": "Meniere hastalığı",
+    "tanim": "Baş dönmesi atakları, dalgalanan işitme kaybı, çınlama ve kulakta dolgunluk hissiyle seyreden iç kulak hastalığı."
+  },
+  {
+    "terim": "Ses terapisi",
+    "tanim": "Ortam sesleri veya ses üreteçleriyle çınlamanın algılanan belirginliğini azaltmayı amaçlayan yaklaşım."
+  },
+  {
+    "terim": "Maskeleme",
+    "tanim": "Bir sesin, başka bir sesin duyulmasını güçleştirmesi veya engellemesi."
+  },
+  {
+    "terim": "Habitüasyon (alışma)",
+    "tanim": "Beynin, önem taşımayan sürekli bir uyarana zamanla daha az tepki vermesi. Çınlamayla baş etmede temel hedeftir."
+  },
+  {
+    "terim": "Bilişsel davranışçı terapi (BDT)",
+    "tanim": "Düşünce ve davranış kalıplarını ele alan psikoterapi yöntemi. Çınlamaya eşlik eden sıkıntıyı azaltmada bilimsel kanıtı en güçlü yaklaşımdır."
+  },
+  {
+    "terim": "Tinnitus yeniden eğitim terapisi (TRT)",
+    "tanim": "Danışmanlık ile ses terapisini birleştiren ve çınlamaya alışmayı hedefleyen yaklaşım."
+  },
+  {
+    "terim": "Tinnitus Engellilik Envanteri (THI)",
+    "tanim": "Çınlamanın günlük yaşama etkisini ölçmek için kullanılan, geçerliliği gösterilmiş bir ölçek."
+  },
+  {
+    "terim": "Desibel (dB)",
+    "tanim": "Ses şiddetinin ölçü birimi."
+  },
+  {
+    "terim": "Beyaz gürültü",
+    "tanim": "Duyulabilir tüm frekansları eşit şiddette içeren, hışırtıya benzeyen ses."
+  },
+  {
+    "terim": "Pembe gürültü",
+    "tanim": "Düşük frekansların daha baskın olduğu, beyaz gürültüye göre daha yumuşak algılanan ses."
+  }
+]

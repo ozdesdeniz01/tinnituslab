@@ -2,6 +2,10 @@
 baslik: Mizofoni
 ozet: Belirli seslere karşı verilen yoğun duygusal tepkinin özellikleri ve ele alınma yolları.
 sira: 3
+guncelleme: 2026-11-20
+denetlendi: false
+kaynaklar:
+  - "Swedo SE, Baguley DM, Denys D, ve ark. Consensus definition of misophonia: a Delphi study. Frontiers in Neuroscience. 2022;16:841816."
 ---
 
 ## Mizofoni nedir?

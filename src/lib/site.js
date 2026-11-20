@@ -15,8 +15,8 @@ export const bilgiYazilari = () =>
     .map((m) => ({ ...m.frontmatter, slug: slugOf(m.file), Content: m.Content }))
     .sort((a, b) => (a.sira ?? 99) - (b.sira ?? 99));
 
-export const blogYazilari = () =>
-  Object.values(import.meta.glob('../icerik/blog/*.md', { eager: true }))
+export const notlar = () =>
+  Object.values(import.meta.glob('../icerik/notlar/*.md', { eager: true }))
     .map((m) => ({ ...m.frontmatter, slug: slugOf(m.file), Content: m.Content }))
     .sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
 

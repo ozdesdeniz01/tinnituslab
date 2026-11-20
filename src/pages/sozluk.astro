@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import sozluk from '../data/sozluk.json';
+const liste = [...sozluk].sort((a, b) => a.terim.localeCompare(b.terim, 'tr'));
+---
+
+<Base baslik="Terimler sözlüğü" aciklama="Kulak çınlaması ve işitme sağlığıyla ilgili terimlerin sade açıklamaları.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Terimler sözlüğü</h1>
+      <p>Muayenede veya okuduğunuz yazılarda karşılaşabileceğiniz terimlerin sade açıklamaları.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <dl class="glossary">
+        {
+          liste.map((t) => (
+            <div>
+              <dt>{t.terim}</dt>
+              <dd>{t.tanim}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</Base>

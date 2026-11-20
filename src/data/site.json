@@ -4,7 +4,11 @@
   "uzman": {
     "ad": "Dr. Nazife Öztürk Özdeş",
     "unvan": "Odyolog",
-    "ozgecmis": "Dr. Nazife Öztürk Özdeş, odyoloji eğitimini Hacettepe Üniversitesinde tamamlamıştır. Ankara Üniversitesi Odyoloji ve Dil Konuşma Bozuklukları doktora programından mezun olmuş, doktora çalışmalarını ABD'de Illinois Üniversitesinde sürdürmüştür.\n\nÇalışma alanı kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofonidir."
+    "foto": "/gorseller/nazife-ozturk-ozdes-sunum.jpg",
+    "fotoAciklama": "Bir bilimsel toplantıda sunum sırasında",
+    "kisaOzgecmis": "Hacettepe Üniversitesi odyoloji lisans mezunu, Ankara Üniversitesi Odyoloji ve Dil Konuşma Bozuklukları doktoru. Tinnitus ve hiperakuzi üzerine uluslararası hakemli dergilerde yayımlanmış çalışmaları bulunmaktadır.",
+    "ozgecmis": "Dr. Nazife Öztürk Özdeş, lisans eğitimini Hacettepe Üniversitesinde odyoloji alanında tamamlamıştır. Ankara Üniversitesi Odyoloji ve Dil Konuşma Bozuklukları doktora programından mezun olmuştur. Doktora sürecinde TÜBİTAK doktora bursuyla ABD'de Illinois Üniversitesinde araştırmalarını sürdürmüştür.\n\nÇalışma alanı kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofonidir. Bu alanlarda uluslararası hakemli dergilerde yayımlanmış çalışmaları bulunmaktadır.",
+    "scholar": "https://scholar.google.com/citations?user=mZlNFfAAAAAJ&hl=tr"
   },
   "iletisim": {
     "telefon": "",
@@ -17,5 +21,6 @@
     "instagram": "",
     "youtube": "",
     "linkedin": ""
-  }
+  },
+  "tema": "mor"
 }

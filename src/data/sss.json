@@ -1,0 +1,50 @@
+[
+  {
+    "soru": "Kulak çınlaması geçer mi?",
+    "yanit": "Yeni başlayan çınlamaların bir bölümü haftalar veya aylar içinde kendiliğinden azalır ya da kaybolur. Uzun süredir devam eden çınlamalarda ses çoğu zaman bütünüyle kaybolmaz; ancak kişilerin büyük bölümü zamanla çınlamaya alışır ve çınlama günlük yaşamı daha az etkiler."
+  },
+  {
+    "soru": "Çınlama ciddi bir hastalığın belirtisi olabilir mi?",
+    "yanit": "Çınlama çoğunlukla ciddi bir hastalığa işaret etmez. Bununla birlikte ani işitme kaybı, tek kulakta sürekli çınlama, kalp atımıyla eş zamanlı çınlama veya baş dönmesi ve yüzde uyuşma gibi belirtiler eşlik ediyorsa gecikmeden bir kulak burun boğaz hekimine başvurulmalıdır."
+  },
+  {
+    "soru": "Çınlamayı geçiren bir ilaç var mı?",
+    "yanit": "Günümüzde çınlamayı ortadan kaldırdığı bilimsel olarak gösterilmiş bir ilaç veya besin takviyesi bulunmamaktadır. Uluslararası kılavuzlar ginkgo biloba, çinko ve melatonin gibi takviyelerin çınlama tedavisi amacıyla kullanılmasını önermemektedir."
+  },
+  {
+    "soru": "Çınlama işitme kaybına yol açar mı?",
+    "yanit": "Hayır. Çınlama işitme kaybına neden olmaz; ancak ikisi sıklıkla birlikte görülür, çünkü çınlamaya en sık eşlik eden durum işitme kaybıdır. Bu nedenle çınlaması olan herkesin işitme testi yaptırması önerilir."
+  },
+  {
+    "soru": "Stres çınlamayı artırır mı?",
+    "yanit": "Stres çınlamanın nedeni olarak gösterilmemiştir; ancak pek çok kişi stresli ve yorgun dönemlerde çınlamayı daha belirgin algıladığını bildirir. Stresin yönetilmesi çınlamayla baş etmeyi kolaylaştırır."
+  },
+  {
+    "soru": "Kahve, tuz veya belirli besinler çınlamayı etkiler mi?",
+    "yanit": "Besinlerin etkisi kişiden kişiye değişir. Kafeinin veya belirli bir besinin kısıtlanmasının çınlamayı azalttığını gösteren yeterli bilimsel kanıt yoktur. Belirli bir besinle çınlamanızın arttığını gözlemliyorsanız bunu hekiminizle paylaşabilirsiniz."
+  },
+  {
+    "soru": "Kulaklık kullanmak çınlamaya neden olur mu?",
+    "yanit": "Kulaklığın kendisi değil, yüksek ses düzeyi ve uzun dinleme süresi işitmeye zarar verebilir ve çınlamaya yol açabilir. Ses düzeyini orta seviyede tutmak ve dinlemeye düzenli aralar vermek işitmeyi korur."
+  },
+  {
+    "soru": "Sessiz ortamda çınlamam neden artıyor?",
+    "yanit": "Çınlamanın şiddeti artmaz; sessizlikte çınlama ile arka plan arasındaki karşıtlık büyüdüğü için çınlama daha kolay fark edilir. Hafif bir ortam sesi bu karşıtlığı azaltır."
+  },
+  {
+    "soru": "İşitme cihazı çınlamaya iyi gelir mi?",
+    "yanit": "İşitme kaybı eşlik ediyorsa işitme cihazı, çevre seslerinin yeniden duyulmasını sağlayarak çınlamanın daha az fark edilmesine yardımcı olabilir. İşitme cihazının uygun olup olmadığı işitme testlerinden sonra belirlenir."
+  },
+  {
+    "soru": "Çocuklarda da kulak çınlaması olur mu?",
+    "yanit": "Evet. Çocuklar çınlamayı çoğu zaman kendiliğinden dile getirmez; bu nedenle fark edilmesi güç olabilir. Çocuğunuz kulağında ses duyduğunu söylüyorsa bir kulak burun boğaz hekimine başvurunuz."
+  },
+  {
+    "soru": "Hiperakuzi ile mizofoni arasındaki fark nedir?",
+    "yanit": "Hiperakuzide rahatsızlık sesin şiddetiyle ilgilidir: gündelik sesler aşırı yüksek algılanır. Mizofonide ise sesin şiddeti değil, çiğneme veya tıkırtı gibi belirli bir sesin kendisi yoğun bir duygusal tepkiye yol açar."
+  },
+  {
+    "soru": "Bu site üzerinden muayene veya tedavi hizmeti alabilir miyim?",
+    "yanit": "Hayır. TinnitusLab bir bilgilendirme platformudur; muayene, tanı veya tedavi hizmeti vermez. Şikâyetleriniz için bir kulak burun boğaz hekimine veya odyoloğa başvurunuz."
+  }
+]

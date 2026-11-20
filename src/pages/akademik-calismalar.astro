@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import yayinlar from '../data/yayinlar.json';
+import { site, u } from '../lib/site.js';
+const { ad, scholar } = site.uzman;
+const liste = [...yayinlar].sort((a, b) => b.yil - a.yil);
+---
+
+<Base baslik="Akademik Çalışmalar" aciklama={`${ad} tarafından yayımlanan tinnitus ve hiperakuzi konulu bilimsel çalışmalar.`}>
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Akademik Çalışmalar</h1>
+      <p>{ad} ve çalışma arkadaşlarının uluslararası hakemli dergilerde yayımlanmış seçilmiş çalışmaları.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <ol class="pubs">
+        {
+          liste.map((y) => (
+            <li>
+              <span class="yil">{y.yil}</span>
+              <div>
+                <h3>{y.baglanti ? <a href={y.baglanti} rel="noopener">{y.baslik}</a> : y.baslik}</h3>
+                <p>
+                  {y.yazarlar} <em>{y.dergi}</em>
+                  {y.ayrinti && `, ${y.ayrinti}`}.
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+      {
+        scholar && (
+          <p style="margin-top:2rem">
+            <a class="btn btn-ghost" href={scholar} rel="noopener">Tüm yayınlar: Google Akademik profili</a>
+          </p>
+        )
+      }
+      <div class="disclaimer">
+        <p>
+          Bu sayfa seçilmiş yayınları içerir. Yayınların güncel ve eksiksiz listesi için Google Akademik profiline
+          bakınız. Bilimsel yayınlar araştırmacılara yöneliktir; bulguların kişisel sağlık durumunuz açısından ne anlama
+          geldiğini hekiminize danışınız.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

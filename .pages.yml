@@ -3,10 +3,10 @@ media:
   output: /gorseller
 
 content:
-  - name: blog
-    label: Blog yazıları
+  - name: notlar
+    label: Araştırma Notları
     type: collection
-    path: src/icerik/blog
+    path: src/icerik/notlar
     filename: '{primary}.md'
     view:
       fields: [baslik, tarih]
@@ -52,9 +52,50 @@ content:
       - name: sira
         label: Sıra numarası
         type: number
+      - name: guncelleme
+        label: Son güncelleme tarihi
+        type: date
+      - name: denetlendi
+        label: Uzman tarafından denetlendi (işaretlenirse yazının altında uzmanın adı görünür)
+        type: boolean
+      - name: kaynaklar
+        label: Kaynaklar
+        type: string
+        list: true
       - name: body
         label: İçerik
         type: rich-text
+
+  - name: yayinlar
+    label: Akademik çalışmalar
+    type: file
+    path: src/data/yayinlar.json
+    list: true
+    fields:
+      - { name: yil, label: Yıl, type: number }
+      - { name: baslik, label: Başlık, type: string }
+      - { name: yazarlar, label: Yazarlar, type: string }
+      - { name: dergi, label: Dergi, type: string }
+      - { name: ayrinti, label: 'Cilt, sayı, sayfa', type: string }
+      - { name: baglanti, label: Bağlantı (DOI), type: string }
+
+  - name: sss
+    label: Sık sorulan sorular
+    type: file
+    path: src/data/sss.json
+    list: true
+    fields:
+      - { name: soru, label: Soru, type: string }
+      - { name: yanit, label: Yanıt, type: text }
+
+  - name: sozluk
+    label: Terimler sözlüğü
+    type: file
+    path: src/data/sozluk.json
+    list: true
+    fields:
+      - { name: terim, label: Terim, type: string }
+      - { name: tanim, label: Tanım, type: text }
 
   - name: ayarlar
     label: Site ayarları ve iletişim
@@ -67,13 +108,22 @@ content:
       - name: aciklama
         label: Site açıklaması
         type: text
+      - name: tema
+        label: Renk teması
+        type: select
+        options:
+          values: [mor, yesil]
       - name: uzman
-        label: Uzman bilgileri (Hakkımızda sayfası)
+        label: Uzman bilgileri
         type: object
         fields:
           - { name: ad, label: Ad soyad, type: string }
-          - { name: unvan, label: Unvan ve uzmanlık alanı, type: string }
-          - { name: ozgecmis, label: Özgeçmiş, type: text }
+          - { name: unvan, label: Unvan, type: string }
+          - { name: foto, label: Fotoğraf, type: image }
+          - { name: fotoAciklama, label: Fotoğraf açıklaması, type: string }
+          - { name: kisaOzgecmis, label: Kısa özgeçmiş (ana sayfa), type: text }
+          - { name: ozgecmis, label: Özgeçmiş (Hakkımızda), type: text }
+          - { name: scholar, label: Google Akademik bağlantısı, type: string }
       - name: iletisim
         label: İletişim bilgileri
         type: object

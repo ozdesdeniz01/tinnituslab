@@ -2,22 +2,38 @@
 import '../styles/global.css';
 import { site, u } from '../lib/site.js';
 
-const { baslik, aciklama = site.aciklama } = Astro.props;
+const { baslik, aciklama = site.aciklama, yapisalVeri } = Astro.props;
 const tamBaslik = baslik ? `${baslik} | ${site.ad}` : `${site.ad} | Kulak çınlaması, hiperakuzi ve mizofoni`;
 const yol = Astro.url.pathname;
 const canonical = new URL(yol, Astro.site);
+const ogGorsel = new URL(u('/og.png'), Astro.site);
 const menu = [
-  { ad: 'Hakkımızda', yol: '/hakkimizda/' },
   { ad: 'Bilgi Merkezi', yol: '/bilgi-merkezi/' },
-  { ad: 'Blog', yol: '/blog/' },
+  { ad: 'Ortam Sesi', yol: '/ortam-sesi/' },
+  { ad: 'Araştırma Notları', yol: '/notlar/' },
+  { ad: 'Akademik Çalışmalar', yol: '/akademik-calismalar/' },
+  { ad: 'Hakkımızda', yol: '/hakkimizda/' },
+];
+const rehber = [
+  { ad: 'Sık sorulan sorular', yol: '/sss/' },
+  { ad: 'Kime başvurmalı?', yol: '/kime-basvurmali/' },
+  { ad: 'Terimler sözlüğü', yol: '/sozluk/' },
 ];
 const aktif = (p) => (yol.startsWith(u(p)) ? 'page' : undefined);
 const { telefon, eposta } = site.iletisim;
 const sosyal = Object.entries(site.sosyal).filter(([, v]) => v);
+const veri = yapisalVeri ?? {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.ad,
+  url: new URL(u('/'), Astro.site).href,
+  inLanguage: 'tr',
+  description: site.aciklama,
+};
 ---
 
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-tema={site.tema}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,12 +41,17 @@ const sosyal = Object.entries(site.sosyal).filter(([, v]) => v);
     <meta name="description" content={aciklama} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={u('/favicon.svg')} />
+    <link rel="sitemap" href={u('/sitemap.xml')} />
+    <meta property="og:site_name" content={site.ad} />
     <meta property="og:title" content={tamBaslik} />
     <meta property="og:description" content={aciklama} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:url" content={canonical} />
-    <meta name="theme-color" content="#0a1b2e" />
+    <meta property="og:image" content={ogGorsel} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#171331" />
+    <script type="application/ld+json" set:html={JSON.stringify(veri)} />
   </head>
   <body>
     <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -38,13 +59,13 @@ const sosyal = Object.entries(site.sosyal).filter(([, v]) => v);
       <div class="wrap">
         <a class="logo" href={u('/')} aria-label={`${site.ad} ana sayfa`}>
           <svg viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" rx="9" fill="#0f2740"></rect>
-            <g fill="#3cc9c2">
+            <rect width="32" height="32" rx="10" fill="var(--ink)"></rect>
+            <g fill="#fff">
               <rect x="6" y="9" width="2.6" height="14" rx="1.3"></rect>
               <rect x="11" y="12" width="2.6" height="8" rx="1.3"></rect>
               <rect x="16" y="13.5" width="2.6" height="5" rx="1.3"></rect>
             </g>
-            <rect x="21" y="14.7" width="5.5" height="2.6" rx="1.3" fill="#f2b544"></rect>
+            <rect x="21" y="14.7" width="5.5" height="2.6" rx="1.3" fill="var(--accent)"></rect>
           </svg>
           {site.ad}
         </a>
@@ -74,6 +95,12 @@ const sosyal = Object.entries(site.sosyal).filter(([, v]) => v);
             <ul>
               {menu.map((m) => <li><a href={u(m.yol)}>{m.ad}</a></li>)}
               <li><a href={u('/iletisim/')}>İletişim</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Rehberler</h2>
+            <ul>
+              {rehber.map((m) => <li><a href={u(m.yol)}>{m.ad}</a></li>)}
             </ul>
           </div>
           <div>

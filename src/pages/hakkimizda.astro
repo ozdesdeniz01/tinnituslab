@@ -1,10 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site, u } from '../lib/site.js';
-const { ad, unvan, ozgecmis } = site.uzman;
+const { ad, unvan, ozgecmis, foto, fotoAciklama, scholar } = site.uzman;
+const veri = ad && {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: ad.replace(/^Dr\.\s*/, ''),
+  honorificPrefix: 'Dr.',
+  jobTitle: unvan,
+  knowsAbout: ['Tinnitus', 'Hiperakuzi', 'Mizofoni', 'Odyoloji'],
+  ...(scholar ? { sameAs: [scholar] } : {}),
+};
 ---
 
-<Base baslik="Hakkımızda" aciklama="TinnitusLab bilgilendirme platformunun kapsamı, yaklaşımı ve ilkeleri.">
+<Base baslik="Hakkımızda" aciklama="TinnitusLab bilgilendirme platformunun kapsamı, yaklaşımı ve ilkeleri." yapisalVeri={veri || undefined}>
   <div class="page-head">
     <div class="wrap">
       <h1>Hakkımızda</h1>
@@ -12,19 +21,33 @@ const { ad, unvan, ozgecmis } = site.uzman;
     </div>
   </div>
 
-  <section class="section">
-    <div class="wrap prose">
-      {
-        ad && (
-          <>
-            <h2 style="margin-top:0">{ad}</h2>
+  {
+    ad && (
+      <section class="section" style="padding-bottom:0">
+        <div class="wrap bio">
+          {foto && (
+            <figure>
+              <img src={u(foto)} alt={ad} width="300" height="362" />
+              {fotoAciklama && <figcaption>{fotoAciklama}</figcaption>}
+            </figure>
+          )}
+          <div class="prose">
+            <h2>{ad}</h2>
             {unvan && <p class="meta">{unvan}</p>}
             {ozgecmis && ozgecmis.split('\n\n').map((p) => <p>{p}</p>)}
-          </>
-        )
-      }
+            <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem">
+              <a class="btn btn-primary" href={u('/akademik-calismalar/')}>Akademik çalışmalar</a>
+              {scholar && <a class="btn btn-ghost" href={scholar} rel="noopener">Google Akademik profili</a>}
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
-      <h2 style={ad ? undefined : 'margin-top:0'}>Platformun kapsamı</h2>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Platformun kapsamı</h2>
       <p>
         TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni hakkında bilgi sunan bir
         bilgilendirme platformudur. Bu üç durum sıklıkla birlikte görülür, günlük yaşamı farklı ölçülerde etkiler ve her
@@ -49,15 +72,11 @@ const { ad, unvan, ozgecmis } = site.uzman;
 
       <h2>İlkelerimiz</h2>
       <ul>
-        <li><strong>Kanıta dayalılık:</strong> Paylaştığımız bilgiler bilimsel yayınlara dayanır.</li>
+        <li><strong>Kanıta dayalılık:</strong> Paylaştığımız bilgiler bilimsel yayınlara dayanır ve kaynakları yazıların sonunda belirtilir.</li>
         <li><strong>Açıklık:</strong> Neyin bilindiğini ve neyin henüz bilinmediğini olduğu gibi aktarırız.</li>
         <li><strong>Doğru yönlendirme:</strong> Hangi durumda hangi sağlık meslek mensubuna başvurulması gerektiğini açıkça belirtiriz.</li>
         <li><strong>Gizlilik:</strong> Kişisel veriler ilgili mevzuata uygun biçimde korunur; site ziyaretçileri izlenmez.</li>
       </ul>
-
-      <p style="margin-top:2.5rem">
-        <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
-      </p>
     </div>
   </section>
 </Base>

@@ -2,6 +2,13 @@
 baslik: Tinnitus (kulak çınlaması)
 ozet: Çınlama nedir, neden olur, hangi durumlarda değerlendirilmelidir ve nasıl ele alınır?
 sira: 1
+guncelleme: 2026-11-20
+denetlendi: false
+kaynaklar:
+  - "Tunkel DE, Bauer CA, Sun GH, ve ark. Clinical practice guideline: tinnitus. Otolaryngology–Head and Neck Surgery. 2014;151(2 Suppl):S1-S40."
+  - "Cima RFF, Mazurek B, Haider H, ve ark. A multidisciplinary European guideline for tinnitus: diagnostics, assessment, and treatment. HNO. 2019;67(Suppl 1):10-42."
+  - "Jarach CM, Lugo A, Scala M, ve ark. Global prevalence and incidence of tinnitus: a systematic review and meta-analysis. JAMA Neurology. 2022;79(9):888-900."
+  - "National Institute for Health and Care Excellence. Tinnitus: assessment and management (NG155). 2020."
 ---
 
 ## Tinnitus nedir?

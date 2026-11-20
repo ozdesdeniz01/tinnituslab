@@ -2,6 +2,11 @@
 baslik: Hiperakuzi (ses hassasiyeti)
 ozet: Gündelik seslerin rahatsız edici ölçüde yüksek algılanması neden olur ve nasıl ele alınır?
 sira: 2
+guncelleme: 2026-11-20
+denetlendi: false
+kaynaklar:
+  - "Tyler RS, Pienkowski M, Roncancio ER, ve ark. A review of hyperacusis and future directions: part I. Definitions and manifestations. American Journal of Audiology. 2014;23(4):402-419."
+  - "Cima RFF, Mazurek B, Haider H, ve ark. A multidisciplinary European guideline for tinnitus: diagnostics, assessment, and treatment. HNO. 2019;67(Suppl 1):10-42."
 ---
 
 ## Hiperakuzi nedir?
