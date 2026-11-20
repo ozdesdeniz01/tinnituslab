@@ -4,7 +4,7 @@ media:
 
 content:
   - name: notlar
-    label: Araştırma Notları
+    label: Yazılarımız
     type: collection
     path: src/icerik/notlar
     filename: '{primary}.md'

@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import yayinlar from '../data/yayinlar.json';
 import { site, u } from '../lib/site.js';
+const liste = [...yayinlar].sort((a, b) => b.yil - a.yil);
 const { ad, unvan, ozgecmis, foto, fotoAciklama, scholar } = site.uzman;
 const veri = ad && {
   '@context': 'https://schema.org',
@@ -36,10 +38,42 @@ const veri = ad && {
             {unvan && <p class="meta">{unvan}</p>}
             {ozgecmis && ozgecmis.split('\n\n').map((p) => <p>{p}</p>)}
             <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem">
-              <a class="btn btn-primary" href={u('/akademik-calismalar/')}>Akademik çalışmalar</a>
+              <a class="btn btn-primary" href="#akademik-calismalar">Akademik çalışmalar</a>
               {scholar && <a class="btn btn-ghost" href={scholar} rel="noopener">Google Akademik profili</a>}
             </p>
           </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    ad && liste.length > 0 && (
+      <section class="section" id="akademik-calismalar" style="padding-bottom:0;scroll-margin-top:5rem">
+        <div class="wrap">
+          <div class="section-head" style="margin-bottom:1.75rem">
+            <h2>Akademik çalışmalar</h2>
+            <p>Uluslararası hakemli dergilerde yayımlanmış seçilmiş çalışmalar.</p>
+          </div>
+          <ol class="pubs">
+            {liste.map((y) => (
+              <li>
+                <span class="yil">{y.yil}</span>
+                <div>
+                  <h3>{y.baglanti ? <a href={y.baglanti} rel="noopener">{y.baslik}</a> : y.baslik}</h3>
+                  <p>
+                    {y.yazarlar} <em>{y.dergi}</em>
+                    {y.ayrinti && `, ${y.ayrinti}`}.
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          {scholar && (
+            <p class="meta" style="margin-top:1.25rem">
+              Yayınların güncel ve eksiksiz listesi için <a href={scholar} rel="noopener">Google Akademik profiline</a> bakınız.
+            </p>
+          )}
         </div>
       </section>
     )

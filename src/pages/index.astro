@@ -62,7 +62,7 @@ const halkalar = [60, 100, 140, 180, 220];
             <h2>{uzman.ad}</h2>
             <p>{uzman.kisaOzgecmis}</p>
           </div>
-          <a class="btn btn-ghost" href={u('/akademik-calismalar/')}>Akademik çalışmalar</a>
+          <a class="btn btn-ghost" href={u('/hakkimizda/#akademik-calismalar')}>Akademik çalışmalar</a>
         </div>
       </section>
     )
@@ -221,12 +221,12 @@ const halkalar = [60, 100, 140, 180, 220];
       <section class="section">
         <div class="wrap">
           <div class="section-head">
-            <h2>Araştırma Notları</h2>
-            <p>Kulak çınlamasıyla gündelik yaşamda sık karşılaşılan durumları ele alan kısa, uygulamaya dönük yazılar.</p>
+            <h2>Yazılarımız</h2>
+            <p>Kulak çınlaması ve ses toleransı alanındaki güncel gelişmeleri ve gündelik yaşama ilişkin önerileri ele alan yazılar.</p>
           </div>
           <div class="posts">
             {yazilar.map((y) => (
-              <a class="post-link" href={u(`/notlar/${y.slug}/`)}>
+              <a class="post-link" href={u(`/yazilar/${y.slug}/`)}>
                 <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
                 <div>
                   <h3>{y.baslik}</h3>
@@ -235,6 +235,7 @@ const halkalar = [60, 100, 140, 180, 220];
               </a>
             ))}
           </div>
+          <p style="margin-top:2rem"><a class="btn btn-ghost" href={u('/yazilar/')}>Tüm yazılar</a></p>
         </div>
       </section>
     )

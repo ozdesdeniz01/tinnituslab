@@ -4,11 +4,11 @@ import { u, notlar, tarih } from '../../lib/site.js';
 const yazilar = notlar();
 ---
 
-<Base baslik="Araştırma Notları" aciklama="Kulak çınlamasıyla gündelik yaşamda sık karşılaşılan durumları ele alan kısa, uygulamaya dönük yazılar.">
+<Base baslik="Yazılarımız" aciklama="Kulak çınlaması ve ses toleransı alanındaki güncel gelişmeleri ve gündelik yaşama ilişkin önerileri ele alan yazılar.">
   <div class="page-head">
     <div class="wrap">
-      <h1>Araştırma Notları</h1>
-      <p>Kulak çınlamasıyla gündelik yaşamda sık karşılaşılan durumları ele alan kısa, uygulamaya dönük yazılar.</p>
+      <h1>Yazılarımız</h1>
+      <p>Kulak çınlaması ve ses toleransı alanındaki güncel gelişmeleri ve gündelik yaşama ilişkin önerileri ele alan yazılar.</p>
     </div>
   </div>
   <section class="section">
@@ -19,7 +19,7 @@ const yazilar = notlar();
         ) : (
           <div class="posts">
             {yazilar.map((y) => (
-              <a class="post-link" href={u(`/notlar/${y.slug}/`)}>
+              <a class="post-link" href={u(`/yazilar/${y.slug}/`)}>
                 <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
                 <div>
                   <h2 style="font-size:1.4rem;margin:0 0 .3em">{y.baslik}</h2>

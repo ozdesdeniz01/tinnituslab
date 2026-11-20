@@ -154,9 +154,12 @@ svg {
   color: var(--ink);
   text-decoration: none;
 }
-.logo svg {
-  width: 2rem;
-  height: 2rem;
+.logo img {
+  height: 2.75rem;
+  width: auto;
+}
+.site-footer .logo img {
+  height: 3rem;
 }
 .nav {
   display: flex;
