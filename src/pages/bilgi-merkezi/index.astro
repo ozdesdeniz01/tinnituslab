@@ -4,11 +4,14 @@ import { u, bilgiYazilari } from '../../lib/site.js';
 const bilgi = bilgiYazilari();
 ---
 
-<Base baslik="Bilgi Merkezi" aciklama="Tinnitus, hiperakuzi ve mizofoni hakkında kaynaklı bilgi yazıları, sık sorulan sorular ve rehberler.">
+<Base baslik="Bilgi Merkezi" aciklama="Tinnitus, hiperakuzi ve mizofoninin nedenleri, değerlendirme süreci ve güncel yaklaşımlar; uluslararası kılavuzlara ve hakemli yayınlara dayalı içerikler.">
   <div class="page-head">
     <div class="wrap">
       <h1>Bilgi Merkezi</h1>
-      <p>Sade bir dille yazılmış, kaynakları belirtilmiş bilgi yazıları ve rehberler.</p>
+      <p>
+        Tinnitus, hiperakuzi ve mizofoninin nedenleri, değerlendirme süreci ve güncel yaklaşımlar. Tüm içerikler
+        uluslararası kılavuzlar ve hakemli yayınlar temel alınarak hazırlanmıştır.
+      </p>
     </div>
   </div>
   <section class="section">
@@ -21,7 +24,7 @@ const bilgi = bilgiYazilari();
                 <h2 style="font-size:1.4rem;margin-bottom:.3em">{b.baslik}</h2>
                 <p>{b.ozet}</p>
               </div>
-              <span class="more">Yazıyı okuyun</span>
+              <span class="more">Devamını okuyun</span>
             </a>
           ))
         }
@@ -29,10 +32,10 @@ const bilgi = bilgiYazilari();
 
       <h2 style="margin-top:4rem">Rehberler</h2>
       <div class="guides">
-        <a class="guide" href={u('/sss/')}><strong>Sık sorulan sorular</strong>En çok merak edilen konuların kısa yanıtları</a>
-        <a class="guide" href={u('/kime-basvurmali/')}><strong>Kime başvurmalı?</strong>Hangi durumda hangi uzmana gidilir</a>
-        <a class="guide" href={u('/sozluk/')}><strong>Terimler sözlüğü</strong>Sık karşılaşılan terimlerin açıklamaları</a>
-        <a class="guide" href={u('/ortam-sesi/')}><strong>Ortam sesi aracı</strong>Tarayıcıda çalışan ücretsiz ses aracı</a>
+        <a class="guide" href={u('/sss/')}><strong>Sık sorulan sorular</strong>Çınlama ve ses toleransına ilişkin temel soruların yanıtları</a>
+        <a class="guide" href={u('/kime-basvurmali/')}><strong>Kime başvurmalı?</strong>Belirtilere göre başvurulacak uzmanlık alanları</a>
+        <a class="guide" href={u('/sozluk/')}><strong>Terimler sözlüğü</strong>Odyoloji ve kulak burun boğaz terimlerinin açıklamaları</a>
+        <a class="guide" href={u('/ortam-sesi/')}><strong>Ortam sesi aracı</strong>Sessiz ortamlar için tarayıcı tabanlı ses aracı</a>
       </div>
     </div>
   </section>

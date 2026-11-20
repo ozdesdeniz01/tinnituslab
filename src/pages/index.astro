@@ -26,8 +26,8 @@ const halkalar = [60, 100, 140, 180, 220];
       <div>
         <h1>Kulak çınlamasını anlamak, onunla baş etmenin ilk adımıdır.</h1>
         <p class="lead">
-          TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni hakkında bilimsel kanıta
-          dayalı, anlaşılır ve güncel bilgi sunar.
+          Kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni alanındaki güncel bilimsel bilgiyi,
+          uluslararası kılavuzlar ve hakemli yayınlar ışığında herkesin yararlanabileceği biçimde sunuyoruz.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
@@ -72,7 +72,10 @@ const halkalar = [60, 100, 140, 180, 220];
     <div class="wrap">
       <div class="section-head">
         <h2>Ele aldığımız üç durum</h2>
-        <p>Üçü de sesin algılanma biçimiyle ilgilidir; sıklıkla birlikte görülür ancak farklı yaklaşımlar gerektirir.</p>
+        <p>
+          Tinnitus, hiperakuzi ve mizofoni sıklıkla bir arada görülür; ancak her biri farklı bir düzenekle ortaya çıkar
+          ve ayrı bir değerlendirme gerektirir.
+        </p>
       </div>
       <div class="trio">
         <article>
@@ -128,8 +131,8 @@ const halkalar = [60, 100, 140, 180, 220];
         <div>
           <h2>Sessizlik çınlamayı belirginleştirir. Hafif bir ortam sesi yardımcı olabilir.</h2>
           <p>
-            Tarayıcınızda çalışan ücretsiz ortam sesi aracıyla farklı gürültü türlerini ve dalga sesini deneyebilir,
-            uykuya geçiş için zamanlayıcı kurabilirsiniz.
+            Ortam sesi aracı; beyaz, pembe ve kahverengi gürültü ile dalga sesini tarayıcınızda üretir. Ses düzeyini
+            ayarlayabilir, uykuya geçiş için zamanlayıcı kurabilirsiniz.
           </p>
           <p style="margin:1.5rem 0 0"><a class="btn btn-primary" href={u('/ortam-sesi/')}>Ortam sesi aracını açın</a></p>
         </div>
@@ -150,7 +153,10 @@ const halkalar = [60, 100, 140, 180, 220];
     <div class="wrap">
       <div class="section-head">
         <h2>Bilgi Merkezi</h2>
-        <p>Sık sorulan konular, sade bir dille ve bilimsel kaynaklara dayanarak hazırlandı.</p>
+        <p>
+          Belirtiler, nedenler, değerlendirme süreci ve güncel yaklaşımlar. Tüm içerikler uluslararası kılavuzlar ve
+          hakemli yayınlar temel alınarak hazırlanmıştır.
+        </p>
       </div>
       <div class="tiles">
         {
@@ -160,7 +166,7 @@ const halkalar = [60, 100, 140, 180, 220];
                 <h3>{b.baslik}</h3>
                 <p>{b.ozet}</p>
               </div>
-              <span class="more">Yazıyı okuyun</span>
+              <span class="more">Devamını okuyun</span>
             </a>
           ))
         }
@@ -216,7 +222,7 @@ const halkalar = [60, 100, 140, 180, 220];
         <div class="wrap">
           <div class="section-head">
             <h2>Araştırma Notları</h2>
-            <p>Güncel bilgilerin ve gündelik yaşama dönük önerilerin kısa yazılarla ele alındığı bölüm.</p>
+            <p>Kulak çınlamasıyla gündelik yaşamda sık karşılaşılan durumları ele alan kısa, uygulamaya dönük yazılar.</p>
           </div>
           <div class="posts">
             {yazilar.map((y) => (
@@ -237,10 +243,10 @@ const halkalar = [60, 100, 140, 180, 220];
   <section class="section closing">
     <div class="wrap">
       <div>
-        <h2>Sorularınız için yazın</h2>
-        <p>İçeriklerle ilgili soru ve önerilerinizi iletişim sayfasından iletebilirsiniz.</p>
+        <h2>Görüş ve sorularınız</h2>
+        <p>İçeriklere ilişkin görüş, soru ve önerilerinizi iletişim sayfası üzerinden bize ulaştırabilirsiniz.</p>
       </div>
-      <a class="btn btn-primary" href={u('/iletisim/')}>İletişim sayfasına gidin</a>
+      <a class="btn btn-primary" href={u('/iletisim/')}>İletişime geçin</a>
     </div>
   </section>
 </Base>
