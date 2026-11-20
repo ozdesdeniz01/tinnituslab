@@ -5,11 +5,11 @@ const { telefon, eposta, adres, calismaSaatleri } = site.iletisim;
 const bilgiVar = telefon || eposta || adres || calismaSaatleri;
 ---
 
-<Base baslik="İletişim" aciklama="TinnitusLab iletişim bilgileri ve randevu talep formu.">
+<Base baslik="İletişim" aciklama="TinnitusLab iletişim bilgileri ve iletişim formu.">
   <div class="page-head">
     <div class="wrap">
       <h1>İletişim</h1>
-      <p>Randevu talebinizi veya sorunuzu aşağıdaki yollarla iletebilirsiniz.</p>
+      <p>İçeriklerle ilgili soru ve önerilerinizi aşağıdaki yollarla iletebilirsiniz.</p>
     </div>
   </div>
 
@@ -50,8 +50,8 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
           )
         }
         <p style="margin-top:2rem" class="meta">
-          Acil sağlık durumlarında bu form üzerinden bildirim yapmayınız; 112'yi arayınız veya en yakın sağlık kuruluşuna
-          başvurunuz.
+          Bu platform muayene, tanı veya tedavi hizmeti vermez; form aracılığıyla kişiye özgü tıbbi öneri verilemez. Acil
+          sağlık durumlarında 112'yi arayınız veya en yakın sağlık kuruluşuna başvurunuz.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
         site.formAnahtari ? (
           <form class="form" id="iletisim-formu" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value={site.formAnahtari} />
-            <input type="hidden" name="subject" value="TinnitusLab internet sitesinden yeni başvuru" />
+            <input type="hidden" name="subject" value="TinnitusLab internet sitesinden yeni mesaj" />
             <input type="hidden" name="from_name" value="TinnitusLab iletişim formu" />
             <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
             <label>
@@ -68,17 +68,17 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
             </label>
             <label>
               Telefon numaranız
-              <input type="tel" name="Telefon" autocomplete="tel" required />
+              <input type="tel" name="Telefon" autocomplete="tel" />
             </label>
             <label>
               E-posta adresiniz
-              <input type="email" name="email" autocomplete="email" />
+              <input type="email" name="email" autocomplete="email" required />
             </label>
             <label>
-              Başvuru konusu
+              Konu
               <select name="Konu">
-                <option>Randevu talebi</option>
                 <option>Bilgi talebi</option>
+                <option>İçerik önerisi</option>
                 <option>Diğer</option>
               </select>
             </label>
@@ -89,18 +89,18 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
             <label class="check">
               <input type="checkbox" required />
               <span>
-                <a href={u('/kvkk/')}>KVKK aydınlatma metnini</a> okudum; ilettiğim bilgilerin başvurumun yanıtlanması
+                <a href={u('/kvkk/')}>KVKK aydınlatma metnini</a> okudum; ilettiğim bilgilerin iletimin yanıtlanması
                 amacıyla işlenmesini kabul ediyorum.
               </span>
             </label>
             <p class="meta" style="margin:0">Lütfen forma ayrıntılı sağlık bilgisi yazmayınız.</p>
-            <div><button class="btn btn-primary" type="submit">Başvuruyu gönder</button></div>
+            <div><button class="btn btn-primary" type="submit">Mesajı gönder</button></div>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         ) : (
           <div class="form">
-            <h2 style="font-size:1.4rem;margin:0">Randevu talep formu</h2>
-            <p style="margin:0">Çevrim içi başvuru formu kısa süre içinde bu sayfada hizmete açılacaktır.</p>
+            <h2 style="font-size:1.4rem;margin:0">İletişim formu</h2>
+            <p style="margin:0">Çevrim içi iletişim formu kısa süre içinde bu sayfada hizmete açılacaktır.</p>
           </div>
         )
       }
@@ -117,7 +117,7 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
         e.preventDefault();
         btn.disabled = true;
         durum.dataset.state = '';
-        durum.textContent = 'Başvurunuz gönderiliyor.';
+        durum.textContent = 'Mesajınız gönderiliyor.';
         try {
           const r = await fetch(form.action, {
             method: 'POST',
@@ -128,10 +128,10 @@ const bilgiVar = telefon || eposta || adres || calismaSaatleri;
           if (!j.success) throw new Error();
           form.reset();
           durum.dataset.state = 'ok';
-          durum.textContent = 'Başvurunuz gönderildi. En kısa sürede size dönüş yapılacaktır.';
+          durum.textContent = 'Mesajınız gönderildi. En kısa sürede size dönüş yapılacaktır.';
         } catch {
           durum.dataset.state = 'err';
-          durum.textContent = 'Başvuru gönderilemedi. Bağlantınızı denetleyip yeniden deneyiniz.';
+          durum.textContent = 'Mesaj gönderilemedi. Bağlantınızı denetleyip yeniden deneyiniz.';
         } finally {
           btn.disabled = false;
         }

@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import hizmetler from '../data/hizmetler.json';
 import { u, bilgiYazilari, blogYazilari, tarih } from '../lib/site.js';
 
 const bilgi = bilgiYazilari();
@@ -24,11 +23,11 @@ const bars = Array.from({ length: N }, (_, i) => {
       <h1>Kulak çınlamasını anlamak, onunla baş etmenin ilk adımıdır.</h1>
       <p class="lead">
         TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni konularında bilimsel kanıta
-        dayalı bilgi, değerlendirme ve izlem sunar.
+        dayalı, anlaşılır ve güncel bilgi sunan bir bilgilendirme platformudur.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
-        <a class="btn btn-ghost" href={u('/iletisim/')}>Randevu talebi oluşturun</a>
+        <a class="btn btn-ghost" href={u('/hakkimizda/')}>Platform hakkında</a>
       </div>
     </div>
     <svg class="wave" viewBox={`0 0 ${N * 10} 120`} preserveAspectRatio="none" aria-hidden="true">
@@ -52,7 +51,7 @@ const bars = Array.from({ length: N }, (_, i) => {
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>İlgilendiğimiz üç durum</h2>
+        <h2>Ele aldığımız üç durum</h2>
         <p>Üçü de sesin algılanma biçimiyle ilgilidir; sıklıkla birlikte görülür ancak farklı yaklaşımlar gerektirir.</p>
       </div>
       <div class="trio">
@@ -84,26 +83,6 @@ const bars = Array.from({ length: N }, (_, i) => {
           <a href={u('/bilgi-merkezi/mizofoni/')}>Mizofoni hakkında</a>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="section section-mist">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Hizmetler</h2>
-        <p>Her başvuru değerlendirmeyle başlar; izlem planı bu değerlendirmenin sonuçlarına göre oluşturulur.</p>
-      </div>
-      <div class="rows">
-        {
-          hizmetler.map((h) => (
-            <div class="row">
-              <h3>{h.baslik}</h3>
-              <p>{h.ozet}</p>
-            </div>
-          ))
-        }
-      </div>
-      <p style="margin-top:2rem"><a class="btn btn-ghost" href={u('/hizmetler/')}>Hizmetlerin ayrıntıları</a></p>
     </div>
   </section>
 
@@ -176,8 +155,8 @@ const bars = Array.from({ length: N }, (_, i) => {
   <section class="section closing">
     <div class="wrap">
       <div>
-        <h2>Değerlendirme için başvurun</h2>
-        <p>Randevu talebinizi veya sorunuzu iletişim sayfasından iletebilirsiniz.</p>
+        <h2>Sorularınız için yazın</h2>
+        <p>İçeriklerle ilgili soru ve önerilerinizi iletişim sayfasından iletebilirsiniz.</p>
       </div>
       <a class="btn btn-primary" href={u('/iletisim/')}>İletişim sayfasına gidin</a>
     </div>

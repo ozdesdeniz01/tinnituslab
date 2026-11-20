@@ -4,7 +4,7 @@ ozet: Görüşmeden önce not edilmesi yararlı bilgiler ve değerlendirme sıra
 tarih: 2026-11-18
 ---
 
-Kulak çınlaması veya ses hassasiyeti nedeniyle ilk kez değerlendirmeye gelecek kişiler çoğu zaman görüşmede nelerin sorulacağını merak eder. Birkaç bilgiyi önceden not etmek, görüşmenin verimli geçmesine yardımcı olur.
+Kulak çınlaması veya ses hassasiyeti nedeniyle ilk kez bir odyoloji veya kulak burun boğaz değerlendirmesine gidecek kişiler çoğu zaman görüşmede nelerin sorulacağını merak eder. Birkaç bilgiyi önceden not etmek, görüşmenin verimli geçmesine yardımcı olur.
 
 ## Görüşmeden önce not edebilecekleriniz
 
@@ -19,7 +19,7 @@ Kulak çınlaması veya ses hassasiyeti nedeniyle ilk kez değerlendirmeye gelec
 
 Değerlendirme ayrıntılı bir öyküyle başlar. Ardından işitme testleri uygulanır; bu testler ağrısızdır ve sessiz bir odada, kulaklıkla yapılır. Çınlamanın veya ses hassasiyetinin günlük yaşama etkisini belirlemek için kısa ölçekler doldurmanız istenebilir.
 
-Görüşmenin sonunda bulgular sizinle paylaşılır ve izlenecek yol birlikte planlanır. Gerekli görülen durumlarda ilgili hekimlik dalına yönlendirme yapılır.
+Görüşmenin sonunda bulgular sizinle paylaşılır ve izlenecek yol birlikte planlanır. Gerekli görülen durumlarda başka bir hekimlik dalına yönlendirilebilirsiniz.
 
 ## Sorularınızı yazın
 

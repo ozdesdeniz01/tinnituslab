@@ -56,23 +56,6 @@ content:
         label: İçerik
         type: rich-text
 
-  - name: hizmetler
-    label: Hizmetler
-    type: file
-    path: src/data/hizmetler.json
-    list: true
-    fields:
-      - name: baslik
-        label: Hizmetin adı
-        type: string
-        required: true
-      - name: ozet
-        label: Kısa açıklama
-        type: text
-      - name: detay
-        label: Ayrıntılı açıklama
-        type: text
-
   - name: ayarlar
     label: Site ayarları ve iletişim
     type: file

@@ -4,7 +4,7 @@ import { site, u } from '../lib/site.js';
 const { ad, unvan, ozgecmis } = site.uzman;
 ---
 
-<Base baslik="Hakkımızda" aciklama="TinnitusLab'in çalışma alanı, yaklaşımı ve ilkeleri.">
+<Base baslik="Hakkımızda" aciklama="TinnitusLab bilgilendirme platformunun kapsamı, yaklaşımı ve ilkeleri.">
   <div class="page-head">
     <div class="wrap">
       <h1>Hakkımızda</h1>
@@ -24,35 +24,39 @@ const { ad, unvan, ozgecmis } = site.uzman;
         )
       }
 
-      <h2 style={ad ? undefined : 'margin-top:0'}>Çalışma alanımız</h2>
+      <h2 style={ad ? undefined : 'margin-top:0'}>Platformun kapsamı</h2>
       <p>
-        TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni üzerine çalışır. Bu üç durum
-        sıklıkla birlikte görülür, günlük yaşamı farklı ölçülerde etkiler ve her biri kendine özgü bir değerlendirme
-        gerektirir.
+        TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni hakkında bilgi sunan bir
+        bilgilendirme platformudur. Bu üç durum sıklıkla birlikte görülür, günlük yaşamı farklı ölçülerde etkiler ve her
+        biri kendine özgü bir değerlendirme gerektirir.
+      </p>
+      <p>
+        Platform bir sağlık kuruluşu değildir; muayene, tanı veya tedavi hizmeti vermez. İçerikler, okurun durumunu daha
+        iyi anlamasına ve başvuracağı sağlık meslek mensubuyla daha verimli bir görüşme yapmasına yardımcı olmayı amaçlar.
       </p>
 
       <h2>Yaklaşımımız</h2>
       <p>
         Çınlamanın yarattığı sıkıntının önemli bir bölümü belirsizlikten kaynaklanır: sesin neden ortaya çıktığı, kalıcı
-        olup olmadığı ve neye işaret ettiği bilinmediğinde kaygı artar. Bu nedenle çalışmalarımızın temelini doğru ve
-        anlaşılır bilgi oluşturur.
+        olup olmadığı ve neye işaret ettiği bilinmediğinde kaygı artar. Bu nedenle platformun temelini doğru ve anlaşılır
+        bilgi oluşturur.
       </p>
       <p>
-        Değerlendirme ve izlemde güncel bilimsel kanıtları ve uluslararası kılavuzları esas alırız. Etkisi gösterilmemiş
+        İçerikleri hazırlarken güncel bilimsel kanıtları ve uluslararası kılavuzları esas alırız. Etkisi gösterilmemiş
         yöntemleri önermez, sonuç güvencesi vermeyiz. Her kişinin şikâyeti, işitme durumu ve yaşam koşulları farklıdır;
-        izlem planı bu farklılıklar gözetilerek oluşturulur.
+        bu nedenle buradaki bilgiler kişiye özgü değerlendirmenin yerini tutmaz.
       </p>
 
       <h2>İlkelerimiz</h2>
       <ul>
-        <li><strong>Kanıta dayalılık:</strong> Paylaştığımız bilgi ve önerdiğimiz yaklaşımlar bilimsel yayınlara dayanır.</li>
+        <li><strong>Kanıta dayalılık:</strong> Paylaştığımız bilgiler bilimsel yayınlara dayanır.</li>
         <li><strong>Açıklık:</strong> Neyin bilindiğini ve neyin henüz bilinmediğini olduğu gibi aktarırız.</li>
-        <li><strong>İş birliği:</strong> Gereken durumlarda kulak burun boğaz hekimliği, nöroloji ve ruh sağlığı alanlarıyla birlikte çalışırız.</li>
-        <li><strong>Gizlilik:</strong> Kişisel veriler ve sağlık bilgileri ilgili mevzuata uygun biçimde korunur.</li>
+        <li><strong>Doğru yönlendirme:</strong> Hangi durumda hangi sağlık meslek mensubuna başvurulması gerektiğini açıkça belirtiriz.</li>
+        <li><strong>Gizlilik:</strong> Kişisel veriler ilgili mevzuata uygun biçimde korunur; site ziyaretçileri izlenmez.</li>
       </ul>
 
       <p style="margin-top:2.5rem">
-        <a class="btn btn-primary" href={u('/hizmetler/')}>Hizmetleri inceleyin</a>
+        <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
       </p>
     </div>
   </section>
