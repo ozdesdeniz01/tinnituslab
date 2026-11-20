@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, u } from '../lib/site.js';
+const sorumlu = site.uzman.ad || site.ad;
+---
+
+<Base baslik="KVKK aydınlatma metni" aciklama="Kişisel verilerin işlenmesine ilişkin aydınlatma metni.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>KVKK aydınlatma metni</h1>
+      <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında bilgilendirme.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap prose">
+      <h2 style="margin-top:0">Veri sorumlusu</h2>
+      <p>
+        Bu internet sitesi aracılığıyla toplanan kişisel veriler, veri sorumlusu sıfatıyla {sorumlu} tarafından 6698
+        sayılı Kişisel Verilerin Korunması Kanunu'na ("Kanun") uygun olarak işlenmektedir.
+      </p>
+
+      <h2>İşlenen kişisel veriler</h2>
+      <p>İletişim formunu doldurmanız hâlinde aşağıdaki veriler işlenir:</p>
+      <ul>
+        <li>Kimlik bilgisi: ad ve soyadı</li>
+        <li>İletişim bilgisi: telefon numarası ve e-posta adresi</li>
+        <li>Başvuru içeriği: mesaj alanına yazdığınız bilgiler</li>
+      </ul>
+      <p>
+        Sağlık verileri Kanun uyarınca özel nitelikli kişisel veridir. Bu nedenle iletişim formuna ayrıntılı sağlık
+        bilgisi yazmamanızı rica ederiz.
+      </p>
+
+      <h2>İşleme amaçları ve hukuki sebep</h2>
+      <p>
+        Kişisel verileriniz; başvurunuzun yanıtlanması, randevu talebinizin değerlendirilmesi ve sizinle iletişim
+        kurulması amaçlarıyla, Kanun'un 5. maddesinde belirtilen hukuki sebeplere dayanılarak işlenir.
+      </p>
+
+      <h2>Verilerin aktarımı</h2>
+      <p>
+        Form aracılığıyla ilettiğiniz bilgiler, başvurunun e-posta yoluyla tarafımıza ulaştırılması için form altyapısı
+        hizmeti sağlayan ve sunucuları yurt dışında bulunabilen hizmet sağlayıcı üzerinden iletilir. Verileriniz bunun
+        dışında, yasal yükümlülükler saklı kalmak üzere, üçüncü kişilerle paylaşılmaz.
+      </p>
+
+      <h2>Saklama süresi</h2>
+      <p>
+        Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen süreler kadar
+        saklanır; sürenin sonunda silinir, yok edilir veya anonim hâle getirilir.
+      </p>
+
+      <h2>Haklarınız</h2>
+      <p>Kanun'un 11. maddesi uyarınca veri sorumlusuna başvurarak;</p>
+      <ul>
+        <li>kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+        <li>işlenmişse buna ilişkin bilgi talep etme,</li>
+        <li>işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+        <li>verilerin aktarıldığı üçüncü kişileri bilme,</li>
+        <li>eksik veya yanlış işlenen verilerin düzeltilmesini isteme,</li>
+        <li>Kanun'da öngörülen koşullar çerçevesinde verilerin silinmesini veya yok edilmesini isteme,</li>
+        <li>Kanun'a aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+      </ul>
+      <p>haklarına sahipsiniz.</p>
+
+      <h2>Başvuru</h2>
+      <p>
+        Haklarınıza ilişkin taleplerinizi <a href={u('/iletisim/')}>iletişim sayfasında</a> yer alan iletişim kanalları
+        üzerinden iletebilirsiniz. Başvurunuz en geç otuz gün içinde sonuçlandırılır.
+      </p>
+    </div>
+  </section>
+</Base>

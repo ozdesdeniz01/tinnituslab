@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, bilgiYazilari } from '../../lib/site.js';
+const bilgi = bilgiYazilari();
+---
+
+<Base baslik="Bilgi Merkezi" aciklama="Tinnitus, hiperakuzi, mizofoni ve çocuklarda kulak çınlaması hakkında kanıta dayalı bilgiler.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Bilgi Merkezi</h1>
+      <p>Sık sorulan soruların yanıtları, sade bir dille ve güncel bilimsel bilgiye dayanarak hazırlandı.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="tiles">
+        {
+          bilgi.map((b) => (
+            <a class="tile" href={u(`/bilgi-merkezi/${b.slug}/`)}>
+              <div>
+                <h2 style="font-size:1.6rem;margin-bottom:.3em">{b.baslik}</h2>
+                <p>{b.ozet}</p>
+              </div>
+              <span class="more">Yazıyı okuyun</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

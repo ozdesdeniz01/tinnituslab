@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, blogYazilari, tarih } from '../../lib/site.js';
+const yazilar = blogYazilari();
+---
+
+<Base baslik="Blog" aciklama="Kulak çınlaması ve ses toleransı üzerine güncel yazılar.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Blog</h1>
+      <p>Kulak çınlaması ve ses toleransı üzerine güncel yazılar.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      {
+        yazilar.length === 0 ? (
+          <p>Henüz yayımlanmış yazı bulunmuyor.</p>
+        ) : (
+          <div class="posts">
+            {yazilar.map((y) => (
+              <a class="post-link" href={u(`/blog/${y.slug}/`)}>
+                <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
+                <div>
+                  <h2 style="font-size:1.4rem;margin:0 0 .3em">{y.baslik}</h2>
+                  <p>{y.ozet}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Base>

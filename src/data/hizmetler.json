@@ -1,0 +1,22 @@
+[
+  {
+    "baslik": "Kapsamlı değerlendirme",
+    "ozet": "Çınlamanın özellikleri, işitme durumu ve günlük yaşama etkisi birlikte ele alınır.",
+    "detay": "Değerlendirme; ayrıntılı öykü, işitme testleri ve çınlamanın günlük yaşama etkisini ölçen geçerli ölçeklerden oluşur. Amaç, şikâyetin özelliklerini ve eşlik eden durumları belirleyerek kişiye uygun bir izlem planı oluşturmaktır. Gerekli görülen durumlarda ilgili hekimlik dallarına yönlendirme yapılır."
+  },
+  {
+    "baslik": "Bilgilendirme ve danışmanlık",
+    "ozet": "Çınlamanın nasıl oluştuğu ve nelerden etkilendiği anlaşılır bir dille açıklanır.",
+    "detay": "Kulak çınlamasında kaygının önemli bir bölümü belirsizlikten kaynaklanır. Danışmanlık görüşmelerinde çınlamanın işitme sistemindeki karşılığı, uyku, stres ve sessizlikle ilişkisi ve günlük yaşamda uygulanabilecek düzenlemeler ele alınır. Görüşmeler kişinin kendi sorularına ve önceliklerine göre biçimlenir."
+  },
+  {
+    "baslik": "Ses terapisi",
+    "ozet": "Ortam sesleri ve ses üreteçleriyle çınlamanın algılanan belirginliği azaltılmaya çalışılır.",
+    "detay": "Ses terapisi, çınlamayı ortadan kaldırmayı değil, çınlama ile arka plan arasındaki karşıtlığı azaltarak alışma sürecini desteklemeyi hedefler. Kullanılacak sesin türü ve düzeyi kişiye göre belirlenir. İşitme kaybının eşlik ettiği durumlarda işitme cihazı seçeneği ayrıca değerlendirilir."
+  },
+  {
+    "baslik": "Hiperakuzi ve mizofoniye yönelik izlem",
+    "ozet": "Seslere karşı azalmış tolerans, kademeli ve planlı bir yaklaşımla ele alınır.",
+    "detay": "Ses hassasiyetinde sesten bütünüyle kaçınmak, zaman içinde toleransı daha da düşürebilir. İzlem sürecinde kişinin zorlandığı sesler ve ortamlar belirlenir, sese kademeli olarak yeniden alışmaya yönelik bir plan oluşturulur. Gereken durumlarda ruh sağlığı alanındaki uzmanlarla iş birliği yapılır."
+  }
+]

@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, u } from '../lib/site.js';
+const { telefon, eposta, adres, calismaSaatleri } = site.iletisim;
+const bilgiVar = telefon || eposta || adres || calismaSaatleri;
+---
+
+<Base baslik="İletişim" aciklama="TinnitusLab iletişim bilgileri ve randevu talep formu.">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>İletişim</h1>
+      <p>Randevu talebinizi veya sorunuzu aşağıdaki yollarla iletebilirsiniz.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap contact">
+      <div>
+        <h2>İletişim bilgileri</h2>
+        {
+          bilgiVar ? (
+            <dl class="dl">
+              {telefon && (
+                <>
+                  <dt>Telefon</dt>
+                  <dd><a href={`tel:${telefon.replace(/\s/g, '')}`}>{telefon}</a></dd>
+                </>
+              )}
+              {eposta && (
+                <>
+                  <dt>E-posta</dt>
+                  <dd><a href={`mailto:${eposta}`}>{eposta}</a></dd>
+                </>
+              )}
+              {adres && (
+                <>
+                  <dt>Adres</dt>
+                  <dd>{adres}</dd>
+                </>
+              )}
+              {calismaSaatleri && (
+                <>
+                  <dt>Çalışma saatleri</dt>
+                  <dd>{calismaSaatleri}</dd>
+                </>
+              )}
+            </dl>
+          ) : (
+            <p>İletişim bilgileri kısa süre içinde bu sayfada yayımlanacaktır.</p>
+          )
+        }
+        <p style="margin-top:2rem" class="meta">
+          Acil sağlık durumlarında bu form üzerinden bildirim yapmayınız; 112'yi arayınız veya en yakın sağlık kuruluşuna
+          başvurunuz.
+        </p>
+      </div>
+
+      {
+        site.formAnahtari ? (
+          <form class="form" id="iletisim-formu" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value={site.formAnahtari} />
+            <input type="hidden" name="subject" value="TinnitusLab internet sitesinden yeni başvuru" />
+            <input type="hidden" name="from_name" value="TinnitusLab iletişim formu" />
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+            <label>
+              Adınız ve soyadınız
+              <input type="text" name="Ad Soyad" autocomplete="name" required />
+            </label>
+            <label>
+              Telefon numaranız
+              <input type="tel" name="Telefon" autocomplete="tel" required />
+            </label>
+            <label>
+              E-posta adresiniz
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+            <label>
+              Başvuru konusu
+              <select name="Konu">
+                <option>Randevu talebi</option>
+                <option>Bilgi talebi</option>
+                <option>Diğer</option>
+              </select>
+            </label>
+            <label>
+              Mesajınız
+              <textarea name="Mesaj" required></textarea>
+            </label>
+            <label class="check">
+              <input type="checkbox" required />
+              <span>
+                <a href={u('/kvkk/')}>KVKK aydınlatma metnini</a> okudum; ilettiğim bilgilerin başvurumun yanıtlanması
+                amacıyla işlenmesini kabul ediyorum.
+              </span>
+            </label>
+            <p class="meta" style="margin:0">Lütfen forma ayrıntılı sağlık bilgisi yazmayınız.</p>
+            <div><button class="btn btn-primary" type="submit">Başvuruyu gönder</button></div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        ) : (
+          <div class="form">
+            <h2 style="font-size:1.4rem;margin:0">Randevu talep formu</h2>
+            <p style="margin:0">Çevrim içi başvuru formu kısa süre içinde bu sayfada hizmete açılacaktır.</p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById('iletisim-formu');
+      if (!form) return;
+      const durum = form.querySelector('.form-status');
+      const btn = form.querySelector('button[type=submit]');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        durum.dataset.state = '';
+        durum.textContent = 'Başvurunuz gönderiliyor.';
+        try {
+          const r = await fetch(form.action, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
+          });
+          const j = await r.json();
+          if (!j.success) throw new Error();
+          form.reset();
+          durum.dataset.state = 'ok';
+          durum.textContent = 'Başvurunuz gönderildi. En kısa sürede size dönüş yapılacaktır.';
+        } catch {
+          durum.dataset.state = 'err';
+          durum.textContent = 'Başvuru gönderilemedi. Bağlantınızı denetleyip yeniden deneyiniz.';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</Base>

@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import hizmetler from '../data/hizmetler.json';
+import { u, bilgiYazilari, blogYazilari, tarih } from '../lib/site.js';
+
+const bilgi = bilgiYazilari();
+const yazilar = blogYazilari().slice(0, 3);
+
+// Dalga: solda düzensiz ve yüksek, sağa doğru sakinleşen çubuklar.
+const N = 120;
+let s = 7;
+const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+const bars = Array.from({ length: N }, (_, i) => {
+  const t = i / (N - 1);
+  const zarf = Math.pow(1 - t, 1.7);
+  const h = 3 + zarf * (22 + rnd() * 78);
+  return { x: i * 10 + 3, h, t };
+});
+---
+
+<Base>
+  <section class="hero on-dark">
+    <div class="wrap">
+      <h1>Kulak çınlamasını anlamak, onunla baş etmenin ilk adımıdır.</h1>
+      <p class="lead">
+        TinnitusLab; kulak çınlaması (tinnitus), ses hassasiyeti (hiperakuzi) ve mizofoni konularında bilimsel kanıta
+        dayalı bilgi, değerlendirme ve izlem sunar.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={u('/bilgi-merkezi/')}>Bilgi Merkezi'ni inceleyin</a>
+        <a class="btn btn-ghost" href={u('/iletisim/')}>Randevu talebi oluşturun</a>
+      </div>
+    </div>
+    <svg class="wave" viewBox={`0 0 ${N * 10} 120`} preserveAspectRatio="none" aria-hidden="true">
+      {
+        bars.map((b, i) => (
+          <rect
+            x={b.x}
+            y={60 - b.h / 2}
+            width="4"
+            height={b.h}
+            rx="2"
+            fill={b.t > 0.78 ? '#f2b544' : '#3cc9c2'}
+            opacity={0.35 + (1 - b.t) * 0.65}
+            style={`--i:${i}`}
+          />
+        ))
+      }
+    </svg>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>İlgilendiğimiz üç durum</h2>
+        <p>Üçü de sesin algılanma biçimiyle ilgilidir; sıklıkla birlikte görülür ancak farklı yaklaşımlar gerektirir.</p>
+      </div>
+      <div class="trio">
+        <article>
+          <h3>Tinnitus</h3>
+          <p class="tr">Kulak çınlaması</p>
+          <p>
+            Dışarıda bir ses kaynağı olmadığı hâlde çınlama, uğultu veya vızıltı duyulmasıdır. Bir hastalık değil, altta
+            yatan farklı durumlara eşlik edebilen bir belirtidir.
+          </p>
+          <a href={u('/bilgi-merkezi/tinnitus/')}>Tinnitus hakkında</a>
+        </article>
+        <article>
+          <h3>Hiperakuzi</h3>
+          <p class="tr">Ses hassasiyeti</p>
+          <p>
+            Çoğu kişinin rahatsız olmadığı gündelik seslerin aşırı yüksek, rahatsız edici veya ağrı verici
+            algılanmasıdır.
+          </p>
+          <a href={u('/bilgi-merkezi/hiperakuzi/')}>Hiperakuzi hakkında</a>
+        </article>
+        <article>
+          <h3>Mizofoni</h3>
+          <p class="tr">Belirli seslere tahammülsüzlük</p>
+          <p>
+            Çiğneme, nefes alma veya tıkırtı gibi belirli seslere karşı yoğun öfke, tiksinti ya da kaygı tepkisi
+            verilmesidir.
+          </p>
+          <a href={u('/bilgi-merkezi/mizofoni/')}>Mizofoni hakkında</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Hizmetler</h2>
+        <p>Her başvuru değerlendirmeyle başlar; izlem planı bu değerlendirmenin sonuçlarına göre oluşturulur.</p>
+      </div>
+      <div class="rows">
+        {
+          hizmetler.map((h) => (
+            <div class="row">
+              <h3>{h.baslik}</h3>
+              <p>{h.ozet}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-ghost" href={u('/hizmetler/')}>Hizmetlerin ayrıntıları</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="notice">
+        <div>
+          <h2>Ne zaman gecikmeden hekime başvurulmalı?</h2>
+          <p>
+            Kulak çınlaması çoğunlukla acil bir durum değildir. Ancak yandaki belirtilerden biri varsa beklemeden bir
+            kulak burun boğaz hekimine başvurulması gerekir.
+          </p>
+        </div>
+        <ul>
+          <li>Çınlamayla birlikte ani gelişen işitme kaybı</li>
+          <li>Yalnızca tek kulakta duyulan ve süreklilik gösteren çınlama</li>
+          <li>Kalp atımıyla eş zamanlı, nabız gibi atan çınlama</li>
+          <li>Baş dönmesi, dengesizlik, yüzde uyuşma veya güçsüzlük</li>
+          <li>Baş veya kulak bölgesine alınan bir darbeden sonra başlayan çınlama</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Bilgi Merkezi</h2>
+        <p>Sık sorulan soruların yanıtları, sade bir dille ve güncel bilimsel bilgiye dayanarak hazırlandı.</p>
+      </div>
+      <div class="tiles">
+        {
+          bilgi.map((b) => (
+            <a class="tile" href={u(`/bilgi-merkezi/${b.slug}/`)}>
+              <div>
+                <h3>{b.baslik}</h3>
+                <p>{b.ozet}</p>
+              </div>
+              <span class="more">Yazıyı okuyun</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    yazilar.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Blog</h2>
+          </div>
+          <div class="posts">
+            {yazilar.map((y) => (
+              <a class="post-link" href={u(`/blog/${y.slug}/`)}>
+                <time datetime={new Date(y.tarih).toISOString().slice(0, 10)}>{tarih(y.tarih)}</time>
+                <div>
+                  <h3>{y.baslik}</h3>
+                  <p>{y.ozet}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section closing">
+    <div class="wrap">
+      <div>
+        <h2>Değerlendirme için başvurun</h2>
+        <p>Randevu talebinizi veya sorunuzu iletişim sayfasından iletebilirsiniz.</p>
+      </div>
+      <a class="btn btn-primary" href={u('/iletisim/')}>İletişim sayfasına gidin</a>
+    </div>
+  </section>
+</Base>

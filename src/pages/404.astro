@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { u } from '../lib/site.js';
+---
+
+<Base baslik="Sayfa bulunamadı">
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Sayfa bulunamadı</h1>
+      <p>Aradığınız sayfa taşınmış veya kaldırılmış olabilir.</p>
+      <p style="margin-top:1.5rem"><a class="btn btn-primary" href={u('/')}>Ana sayfaya dönün</a></p>
+    </div>
+  </div>
+</Base>
